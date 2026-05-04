@@ -1,0 +1,10 @@
+com\onesports\pageObjects\RegistrationPage.class
+com\onesports\listeners\Retry.class
+com\onesports\listeners\ScreenshotUtil.class
+com\onesports\models\userData.class
+com\onesports\utilities\ConfigManager.class
+com\onesports\utilities\Utils.class
+com\onesports\resources\ConfigManager.class
+com\onesports\base\BaseTest.class
+com\onesports\listeners\ExtentReportsTestNG.class
+com\onesports\utilities\DbUtils.class

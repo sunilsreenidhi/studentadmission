@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 5, Time elapsed: 1.505 s <<< FAILURE! - in TestSuite
+setUp(com.onesports.tests.RegistrationTest)  Time elapsed: 0.586 s  <<< FAILURE!
+java.lang.ExceptionInInitializerError
+Caused by: java.lang.RuntimeException: Failed to load config.properties
+
