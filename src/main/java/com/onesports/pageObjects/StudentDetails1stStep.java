@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.onesports.utilities.Utils;
+
 public class StudentDetails1stStep {
 
     private WebDriver driver;
@@ -137,7 +139,7 @@ public class StudentDetails1stStep {
 
     private void selectByValue(WebElement element, String value) {
         WebElement el = waitForVisible(element);
-        new Select(el).selectByValue(value);
+        new Select(el).selectByVisibleText(value);
     }
 
     public void selectCourse(String courseValue) {
@@ -268,7 +270,8 @@ public class StudentDetails1stStep {
         selectByValue(guardianSelectedSelect, guardianOption);
     }
 
-    public void clickMakePayment() {
+    public void clickMakePayment() throws InterruptedException {
+        Utils.scrollToBottomOfPageFully(driver);
         waitForClickable(makePaymentButton).click();
     }
 

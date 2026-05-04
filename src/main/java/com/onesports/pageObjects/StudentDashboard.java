@@ -30,7 +30,7 @@ public class StudentDashboard {
 
 
     public void clickStartApplication() {
-        startApplicationBtn.click();
+        waitForClickable(startApplicationBtn).click();
     }
 private WebElement waitForClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
