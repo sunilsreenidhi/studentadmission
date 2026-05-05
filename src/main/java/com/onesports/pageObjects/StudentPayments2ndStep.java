@@ -71,7 +71,7 @@ public class StudentPayments2ndStep {
     private WebElement totalAmountValue;
 
     // Proceed to Payment Button
-    @FindBy(xpath = "//button[contains(text(),'Proceed to Secure Payment Gateway')]")
+    @FindBy(xpath = "//button[.//text()[contains(.,'Proceed to Secure Payment')]]")
     private WebElement proceedToPaymentBtn;
 
     // -------- Private helpers --------

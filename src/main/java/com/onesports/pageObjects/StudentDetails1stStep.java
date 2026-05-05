@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.onesports.utilities.Utils;
 
+import groovyjarjarantlr4.v4.parse.ANTLRParser.prequelConstruct_return;
+
 public class StudentDetails1stStep {
 
     private WebDriver driver;
@@ -279,4 +281,21 @@ public class StudentDetails1stStep {
     return wait.until(ExpectedConditions.visibilityOfElementLocated(
         By.xpath("//span[normalize-space()='" + stepName + "']"))).isDisplayed();
 }
+
+    public void fillBasicDetails() throws InterruptedException
+    {
+
+         uploadPhoto("C:/Users/sunil/Downloads/sunilpic.jpg");
+         uploadAadhar("C:/Users/sunil/Downloads/adhar.png");
+         enterDateOfBirth("01/01/2000");
+         selectGender("Male");
+         enterAadhaarNumber("123456789012");
+         selectBloodGroup("A+");
+         selectAdmissionType("Regular");
+        selectTransportRequired("No");
+         selectHostelRequired("No");
+        enterFatherName("Harri");
+        enterMotherName("Sree");
+        clickMakePayment();
+    }
 }

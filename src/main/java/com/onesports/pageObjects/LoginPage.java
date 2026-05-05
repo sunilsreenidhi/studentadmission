@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.onesports.utilities.Utils;
+
 public class LoginPage {
     
     private WebDriver driver;
@@ -48,6 +50,7 @@ public class LoginPage {
 }
 
     public void login(String email, String password) {
+        Utils.waitForElementVisiblility(driver, emailField);
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
         loginButton.click();
