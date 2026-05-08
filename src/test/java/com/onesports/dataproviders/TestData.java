@@ -224,7 +224,7 @@ public class TestData {
 
         
    @DataProvider(name = "registrationData")
-public Object[][] getRegistrationData() {
+public Object[][] getRegistrationData() throws InterruptedException {
 
     String firstName = Utils.generateFirstName(); 
     String surName  = Utils.generateLastName();

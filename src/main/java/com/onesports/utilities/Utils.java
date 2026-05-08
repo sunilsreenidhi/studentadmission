@@ -117,21 +117,45 @@ public static void waitForSpinnerToDisappear(WebDriver driver, By spinnerLocator
 	    ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
 	}
 	
-	public static void scrollToBottomOfPageFully(WebDriver driver) throws InterruptedException {
-	    long lastHeight = (long) ((JavascriptExecutor) driver).executeScript("return document.body.scrollHeight");
+	public static void scrollToBottomOfPageFully(WebDriver driver)
+        throws InterruptedException {
 
-	    while (true) {
-	        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-	        // Wait for the page to load new content (if infinite scrolling is involved)
-	        Thread.sleep(2000); // Adjust the sleep time as necessary
+    // Wait until page fully loads
+    wait.until(webDriver ->
+            ((JavascriptExecutor) webDriver)
+                    .executeScript("return document.readyState")
+                    .equals("complete"));
 
-	        long newHeight = (long) ((JavascriptExecutor) driver).executeScript("return document.body.scrollHeight");
-	        if (newHeight == lastHeight) {
-	            break; // Break when the bottom of the page is reached
-	        }
-	        lastHeight = newHeight;
-	    }
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+
+    long lastHeight = ((Number) js.executeScript(
+            "return document.body.scrollHeight")).longValue();
+
+    while (true) {
+
+        js.executeScript(
+                "window.scrollTo(0, document.body.scrollHeight);");
+
+        Thread.sleep(2000);
+
+        long newHeight = ((Number) js.executeScript(
+                "return document.body.scrollHeight")).longValue();
+
+        if (newHeight == lastHeight) {
+            break;
+        }
+
+        lastHeight = newHeight;
+    }
+}
+
+	public static void scrollToTop(WebDriver driver)
+	{
+
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+	 js.executeScript("window.scrollTo({top: 0, behavior: 'smooth'});");
 	}
 
 	public static void verifyToastMessage(WebDriver driver, String expected, int timeoutSeconds) {
@@ -147,6 +171,7 @@ public static void waitForSpinnerToDisappear(WebDriver driver, By spinnerLocator
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(webElement));
 	}
 	
+		
 	public static void presenceOfElementLocated(WebDriver driver, By webElement) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.presenceOfElementLocated(webElement)).click();;
@@ -354,7 +379,8 @@ public static void waitForSpinnerToDisappear(WebDriver driver, By spinnerLocator
 	        return "test" + System.currentTimeMillis() + "@yopmail.com";
 	    }
 
-	    public static String randomPhone() {
+	    public static String randomPhone() throws InterruptedException {
+			Thread.sleep(500);
 	        return "9" + (int)(Math.random() * 1_000_000_000);
 	    }
 

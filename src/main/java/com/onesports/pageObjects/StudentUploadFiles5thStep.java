@@ -2,6 +2,7 @@ package com.onesports.pageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,26 +41,26 @@ public class StudentUploadFiles5thStep {
     @FindBy(xpath = "//span[normalize-space()='Declaration']")
     private WebElement declarationStep;
 
-    @FindBy(css = "input#signature")
-    private WebElement signatureUploadInput;
+   @FindBy(id = "signature")
+private WebElement signatureUploadInput;
 
-    @FindBy(css = "input#x_cert")
-    private WebElement tenthCertificateUploadInput;
+@FindBy(id = "x_cert")
+private WebElement tenthCertificateUploadInput;
 
-    @FindBy(css = "input#xii_cert")
-    private WebElement twelfthCertificateUploadInput;
+@FindBy(id = "xii_cert")
+private WebElement twelfthCertificateUploadInput;
 
-    @FindBy(css = "input#diploma")
-    private WebElement diplomaUploadInput;
+@FindBy(id = "diploma")
+private WebElement diplomaUploadInput;
 
-    @FindBy(css = "input#scorecard")
-    private WebElement scorecardUploadInput;
+@FindBy(id = "scorecard")
+private WebElement scorecardUploadInput;
 
-    @FindBy(css = "input#passport_front")
-    private WebElement passportFrontUploadInput;
+@FindBy(id = "passport_front")
+private WebElement passportFrontUploadInput;
 
-    @FindBy(css = "input#passport_back")
-    private WebElement passportBackUploadInput;
+@FindBy(id = "passport_back")
+private WebElement passportBackUploadInput;
 
     @FindBy(xpath = "//button[normalize-space()='Previous']")
     private WebElement previousButton;
@@ -67,16 +68,22 @@ public class StudentUploadFiles5thStep {
     @FindBy(xpath = "//button[contains(normalize-space(.), 'Save & Continue')]")
     private WebElement saveAndContinueButton;
 
-    private void uploadFile(WebElement fileInput, String filePath) {
-        wait.until(ExpectedConditions.visibilityOf(fileInput));
-        fileInput.sendKeys(filePath);
+    private void uploadFile(WebElement fileInput, String filePath) throws Throwable {
+    // JavascriptExecutor js = (JavascriptExecutor) driver;
+    // js.executeScript("arguments[0].style.display='block';", fileInput);
+    Thread.sleep(1000);
+    fileInput.sendKeys(filePath);
+}
+ private WebElement waitForVisible(WebElement element) {
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void uploadSignature(String filePath) {
+    public void uploadSignature(String filePath) throws Throwable {
+    
         uploadFile(signatureUploadInput, filePath);
     }
 
-    public void uploadTenthCertificate(String filePath) {
+    public void uploadTenthCertificate(String filePath) throws Throwable {
         uploadFile(tenthCertificateUploadInput, filePath);
     }
 

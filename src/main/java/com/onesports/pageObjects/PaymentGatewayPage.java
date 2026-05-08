@@ -81,7 +81,7 @@ public class PaymentGatewayPage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
-
+    }
 
     public void switchToGatewayFrame() {
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(gatewayFrameLocator));
@@ -269,7 +269,7 @@ public class PaymentGatewayPage {
         }
     }
 
-    public void completeNetBankingPayment() {
+    public void completeNetBankingPayment() throws InterruptedException {
          switchToGatewayFrame();         
          NetBankingPaymentData netBankingData = new NetBankingPaymentData("Axis Bank");
         payWithNetBanking(netBankingData);
@@ -277,6 +277,7 @@ public class PaymentGatewayPage {
           enterOtp();
         clickSuccess();
         switchToDefaultContent();
+        Thread.sleep(5000); 
 
     }
 }

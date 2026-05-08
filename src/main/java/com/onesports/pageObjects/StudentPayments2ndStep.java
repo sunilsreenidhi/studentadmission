@@ -2,12 +2,15 @@ package com.onesports.pageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.onesports.utilities.Utils;
 
 public class StudentPayments2ndStep {
 
@@ -73,6 +76,11 @@ public class StudentPayments2ndStep {
     // Proceed to Payment Button
     @FindBy(xpath = "//button[.//text()[contains(.,'Proceed to Secure Payment')]]")
     private WebElement proceedToPaymentBtn;
+    
+    //Continue Application Button after Payment Success
+    @FindBy(xpath = "//button[.//span[contains(., 'Continue Application')]]")
+    private WebElement continueApplicationBtn;
+
 
     // -------- Private helpers --------
 
@@ -125,6 +133,22 @@ public class StudentPayments2ndStep {
     public PaymentGatewayPage clickProceedToPayment() {
         waitForClickable(proceedToPaymentBtn).click();
         return new PaymentGatewayPage(driver);
+    }
+
+    public void clickContinueApplication() {
+         
+          waitForClickable(continueApplicationBtn);
+          try {
+        Thread.sleep(1000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    
+    }    
+     // JS click (most reliable for React apps)
+    ((JavascriptExecutor) driver)
+            .executeScript(
+                    "arguments[0].click();",
+                    continueApplicationBtn);
     }
 
     public boolean isPaymentSummaryVisible() {

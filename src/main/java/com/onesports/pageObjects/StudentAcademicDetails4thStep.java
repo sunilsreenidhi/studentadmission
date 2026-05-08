@@ -169,15 +169,34 @@ public class StudentAcademicDetails4thStep {
             String maxMarks,
             String obtainedMarks,
             String percentage) {
+         if (!institute.trim().isEmpty())
         typeText(tenthInstituteField, institute);
+
+    if (!institutePlace.trim().isEmpty())
         typeText(tenthInstitutePlaceField, institutePlace);
+
+    if (!board.trim().isEmpty())
         selectByVisibleText(tenthBoardSelect, board);
+
+    if (!medium.trim().isEmpty())
         typeText(tenthMediumField, medium);
+
+    if (!hallTicket.trim().isEmpty())
         typeText(tenthHallTicketField, hallTicket);
+
+    if (!year.trim().isEmpty())
         typeText(tenthYearField, year);
+
+    if (!markingScheme.trim().isEmpty())
         selectByVisibleText(tenthMarkingSchemeSelect, markingScheme);
+
+    if (!maxMarks.trim().isEmpty())
         typeText(tenthMaxMarksField, maxMarks);
+
+    if (!obtainedMarks.trim().isEmpty())
         typeText(tenthObtMarksField, obtainedMarks);
+
+    if (!percentage.trim().isEmpty())
         typeText(tenthPercentageField, percentage);
     }
 
@@ -200,23 +219,58 @@ public class StudentAcademicDetails4thStep {
             String chemistry,
             String mpcPercentage) {
         setCheckbox(has12thCheckbox, has12th);
-        typeText(twelfthInstituteField, institute);
-        typeText(twelfthBranchField, branch);
-        selectByVisibleText(twelfthBoardSelect, board);
-        typeText(twelfthMediumField, medium);
-        typeText(twelfthHallTicketField, hallTicket);
-        typeText(twelfthStreamField, stream);
-        typeText(twelfthYearField, year);
-        selectByVisibleText(twelfthResultStatusSelect, resultStatus);
-        selectByVisibleText(twelfthMarkingSchemeSelect, markingScheme);
-        typeText(twelfthMaxMarksField, maxMarks);
-        typeText(twelfthObtMarksField, obtainedMarks);
-        typeText(twelfthPercentageField, percentage);
-        typeText(twelfthMathsField, maths);
-        typeText(twelfthPhysicsField, physics);
-        typeText(twelfthChemistryField, chemistry);
-        typeText(twelfthMPCPercentageField, mpcPercentage);
+
+         if (!has12th) {
+        return;
     }
+        if (!institute.trim().isEmpty())
+        typeText(twelfthInstituteField, institute);
+
+    if (!branch.trim().isEmpty())
+        typeText(twelfthBranchField, branch);
+
+    if (!board.trim().isEmpty())
+        selectByVisibleText(twelfthBoardSelect, board);
+
+    if (!medium.trim().isEmpty())
+        typeText(twelfthMediumField, medium);
+
+    if (!hallTicket.trim().isEmpty())
+        typeText(twelfthHallTicketField, hallTicket);
+
+    if (!stream.trim().isEmpty())
+        selectByVisibleText(twelfthStreamField, stream);
+
+    if (!year.trim().isEmpty())
+        typeText(twelfthYearField, year);
+
+    if (!resultStatus.trim().isEmpty())
+        selectByVisibleText(twelfthResultStatusSelect, resultStatus);
+
+    if (!markingScheme.trim().isEmpty())
+        selectByVisibleText(twelfthMarkingSchemeSelect, markingScheme);
+
+    if (!maxMarks.trim().isEmpty())
+        typeText(twelfthMaxMarksField, maxMarks);
+
+    if (!obtainedMarks.trim().isEmpty())
+        typeText(twelfthObtMarksField, obtainedMarks);
+
+    if (!percentage.trim().isEmpty())
+        typeText(twelfthPercentageField, percentage);
+
+    if (!maths.trim().isEmpty())
+        typeText(twelfthMathsField, maths);
+
+    if (!physics.trim().isEmpty())
+        typeText(twelfthPhysicsField, physics);
+
+    if (!chemistry.trim().isEmpty())
+        typeText(twelfthChemistryField, chemistry);
+
+    if (!mpcPercentage.trim().isEmpty())
+        typeText(twelfthMPCPercentageField, mpcPercentage);
+}
 
     public void setHasDiploma(boolean value) {
         setCheckbox(hasDiplomaCheckbox, value);

@@ -2,6 +2,7 @@ package com.onesports.pageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,17 @@ public class StudentDashboard {
 
 
     public void clickStartApplication() {
-        waitForClickable(startApplicationBtn).click();
+        
+    try {
+
+        waitForClickable(startApplicationBtn)
+                .click();
+    } catch (StaleElementReferenceException e) {
+
+        
+        waitForClickable(startApplicationBtn)
+                .click();
+    }
     }
 private WebElement waitForClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
