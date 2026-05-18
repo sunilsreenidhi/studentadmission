@@ -151,7 +151,7 @@ public class TestData {
     }
 
      @DataProvider(name = "enquiriesData")
-    public Object[][] getEnquiriesData() {
+    public Object[][] getEnquiriesData() throws InterruptedException {
     String firstName = Utils.generateFirstName(); 
     String surName  = Utils.generateLastName();
     String fullName  = firstName + " " + surName;
@@ -198,6 +198,32 @@ public class TestData {
                 }
         };
       }
+
+    @DataProvider(name = "enquiryData")
+    public Object[][] getEnquiryData() throws InterruptedException {
+        String firstName = Utils.generateFirstName();
+        String surName = Utils.generateLastName();
+        String fullName = firstName + " " + surName;
+        String mobile = Utils.randomPhone();
+
+        userData user = new userData(
+                "Mr",
+                fullName,
+                surName,
+                firstName + System.currentTimeMillis() + "@yopmail.com",
+                mobile,
+                "",
+                "9998887776",
+                "Telangana",
+                "Hyderabad",
+                " UG-Engineering",
+                "Computer Science and Engineering ",
+                "",
+                ""
+        );
+
+        return new Object[][]{{ user }};
+    }
 
       @DataProvider(name = "getexistingEnquiryRecord")
     public Object[][] getexistingEnquiryRecord() {

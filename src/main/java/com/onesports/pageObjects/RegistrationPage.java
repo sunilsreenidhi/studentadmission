@@ -57,7 +57,7 @@ public class RegistrationPage  {
     @FindBy(css = "input[formcontrolname='mobile']")
     private WebElement mobileInput;
 
-    @FindBy(xpath = "//span[contains(text(),'Verify Phone')]")
+    @FindBy(xpath = "//span[contains(text(),'Verify Mobile')]")
     private WebElement verifyMobileBtn;
 
     @FindBy(css = "input[placeholder='Enter 6-digit OTP']")
