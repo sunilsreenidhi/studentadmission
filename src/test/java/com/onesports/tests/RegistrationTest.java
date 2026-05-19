@@ -33,8 +33,26 @@ import com.onesports.dataproviders.TestData;
 
 public class RegistrationTest extends BaseTest{
 
-      @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
-    public void registerUserTest(userData user ) throws Throwable 
+  @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
+  public void registerNewUserTest(userData user) throws Throwable
+  { 
+
+      getDriver().get("https://suadm-stg.suh.edu.in/student/apply-now");
+   //     driver.get(ConfigReader.getBaseURL());
+           RegistrationPage reg = new RegistrationPage(getDriver());
+
+           reg.fillBasicDetails(user);
+           reg.verifyMobileOTP(user.getMobile());
+           reg.completeRegistration(user);
+      
+         StudentDetails1stStep detailsPage = new StudentDetails1stStep(getDriver());
+      Assert.assertTrue(detailsPage.isStepVisible("Applicant and Program Details"), "Failed to navigate to Student Details step");
+     
+
+  }
+
+   //   @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
+    public void registerUserToFillApplication(userData user ) throws Throwable 
 
   {   
         getDriver().get("https://suadm-stg.suh.edu.in/student/apply-now");

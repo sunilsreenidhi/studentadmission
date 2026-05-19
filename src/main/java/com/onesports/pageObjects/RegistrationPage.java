@@ -173,7 +173,8 @@ public class RegistrationPage  {
         selectByVisibleText(countryCode1Select, visibleText);
     }
 
-    public void enterMobile(String mobile) {
+    public void enterMobile(String mobile) throws InterruptedException {
+        Thread.sleep(1000); // wait for any dynamic changes after selecting country code
         type(mobileInput, mobile);
     }
 
@@ -257,7 +258,7 @@ public class RegistrationPage  {
         waitForClickable(button).click();
     }
 
-    public void fillBasicDetails(userData user) {
+    public void fillBasicDetails(userData user) throws InterruptedException {
     selectInitials(user.getInitials());
     enterFullName(user.getFullName());
     enterSurname(user.getSurname());
