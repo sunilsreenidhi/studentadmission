@@ -21,23 +21,35 @@ public class ConfigManager {
         return System.getProperty("env", prop.getProperty("env"));
     }
 
-    public static String getBaseUrl() {
-        return prop.getProperty(getEnv() + ".url");
+    public static String getStudentApplyUrl() {
+        return prop.getProperty(getEnv() + ".studentapply.url");
     }
 
-    public static String getUsername() {
-        return prop.getProperty(getEnv() + ".username");
+    public static String getStudentEnquiryUrl() {
+        return prop.getProperty(getEnv() + ".studentenquiry.url");
     }
 
-    public static String getPassword() {
-        return prop.getProperty(getEnv() + ".password");
+    public static String getAdminUrl() {
+        return prop.getProperty(getEnv() + ".admin.url");
+    }
+
+    public static String getAdminEmail() {
+        return prop.getProperty(getEnv() + ".admin.email");
+    }
+
+    public static String getAdminPassword() {
+        return prop.getProperty(getEnv() + ".admin.password");
     }
 
     public static String getBrowser() {
         return System.getProperty("browser", prop.getProperty("browser", "chrome"));
     }
 
-     public static String amazonUrl() {
-       return prop.getProperty("amazon.url");
+     public static String getStudentMobile() {
+       return prop.getProperty(getEnv() + ".student.mobile");
+    }
+
+    public static String getStudentPassword() {
+        return prop.getProperty(getEnv() + ".student.password");
     }
 }
