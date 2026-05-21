@@ -41,13 +41,12 @@ public class LoginPage {
     @FindBy(xpath="//button[contains(text(),'Forgot Password?')]")
     private WebElement forgotPasswordLink;
 
-      @FindBy(css = "button i.mdi-account-outline")
-    private By studentProfileIcon; 
+    @FindBy(xpath="//span[text()='Dashboard']")
+    private WebElement dashboardBreadcrumb;
 
-     public boolean isUserProfileVisible() {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    return wait.until(ExpectedConditions.visibilityOfElementLocated(studentProfileIcon)).isDisplayed();
-}
+     public WebElement dashboardBreadcrumbVisible() {
+    return dashboardBreadcrumb;
+     }
 
     public void login(String email, String password) {
         Utils.waitForElementVisiblility(driver, emailField);

@@ -87,23 +87,23 @@ private WebElement passportBackUploadInput;
         uploadFile(tenthCertificateUploadInput, filePath);
     }
 
-    public void uploadTwelfthCertificate(String filePath) {
+    public void uploadTwelfthCertificate(String filePath) throws Throwable {
         uploadFile(twelfthCertificateUploadInput, filePath);
     }
 
-    public void uploadDiplomaCertificate(String filePath) {
+    public void uploadDiplomaCertificate(String filePath) throws Throwable {
         uploadFile(diplomaUploadInput, filePath);
     }
 
-    public void uploadQualifyingScorecard(String filePath) {
+    public void uploadQualifyingScorecard(String filePath) throws Throwable {
         uploadFile(scorecardUploadInput, filePath);
     }
 
-    public void uploadPassportFront(String filePath) {
+    public void uploadPassportFront(String filePath) throws Throwable {
         uploadFile(passportFrontUploadInput, filePath);
     }
 
-    public void uploadPassportBack(String filePath) {
+    public void uploadPassportBack(String filePath) throws Throwable {
         uploadFile(passportBackUploadInput, filePath);
     }
 

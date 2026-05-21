@@ -1,2 +1,4 @@
 com\onesports\dataproviders\TestData.class
+com\onesports\tests\EnquiryTest.class
+com\onesports\tests\LoginTest.class
 com\onesports\tests\RegistrationTest.class

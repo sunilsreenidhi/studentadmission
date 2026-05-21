@@ -1,4 +1,4 @@
-package com.onesports.listeners;
+package com.onesports.utilities;
 
 import java.io.File;
 
@@ -14,15 +14,21 @@ public class ScreenshotUtil {
             File src = ((TakesScreenshot) driver)
                     .getScreenshotAs(OutputType.FILE);
 
-            String path = System.getProperty("user.dir")
-                    + "/reports/screenshots/"
-                    + testName + "_" + System.currentTimeMillis() + ".png";
+            File screenshotDir = new File(System.getProperty("user.dir")
+                    + File.separator + "reports"
+                    + File.separator + "screenshots");
+            if (!screenshotDir.exists()) {
+                screenshotDir.mkdirs();
+            }
+
+            String path = screenshotDir.getAbsolutePath()
+                    + File.separator + testName + "_" + System.currentTimeMillis() + ".png";
 
             FileUtils.copyFile(src, new File(path));
             return path;
 
         } catch (Exception e) {
-              e.printStackTrace();
+            e.printStackTrace();
             return null;
         }
     }

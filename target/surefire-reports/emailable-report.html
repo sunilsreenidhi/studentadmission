@@ -8,34 +8,45 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">RegistrationSuite</th></tr>
-<tr><td><a href="#t0">RegistrationTests</a></td><td class="num">0</td><td class="num attn">2</td><td class="num">0</td><td class="num">0</td><td class="num">426</td><td></td><td></td></tr>
+<tr><th colspan="8">Surefire suite</th></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">15,386</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">RegistrationSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">RegistrationTests &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.onesports.tests.RegistrationTest</td><td><a href="#m0">setUp</a></td><td rowspan="1">1777549120248</td><td rowspan="1">11</td></tr><tr><th colspan="4">RegistrationTests &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="3">com.onesports.tests.RegistrationTest</td><td><a href="#m1">setUp</a></td><td rowspan="1">1777549120628</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m2">tearDown</a></td><td rowspan="2">1777549120269</td><td rowspan="2">0</td></tr><tr class="skippedeven"><td><a href="#m3">tearDown</a></td></tr><tr><th colspan="4">RegistrationTests &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="2">com.onesports.tests.RegistrationTest</td><td><a href="#m4">registerExistingEnquiryRecordTest</a></td><td rowspan="1">1777549120269</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m5">registerUserTest</a></td><td rowspan="1">1777549120628</td><td rowspan="1">2</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.onesports.tests.RegistrationTest</td><td><a href="#m0">registerNewUserTest</a></td><td rowspan="1">1779173370215</td><td rowspan="1">10774</td></tr></tbody>
 </table>
-<h2>RegistrationTests</h2><h3 id="m0">com.onesports.tests.RegistrationTest#setUp</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.ExceptionInInitializerError
-	at com.onesports.base.BaseTest.setUp(BaseTest.java:24)
+<h2>Surefire test</h2><h3 id="m0">com.onesports.tests.RegistrationTest#registerNewUserTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>com.onesports.models.userData@7ea899a9</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages">Failed to capture screenshot for test: registerNewUserTest<br></div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=148.0.7778.168)
+Build info: version: &apos;4.27.0&apos;, revision: &apos;d6e718d134&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6769526e8df96b709ac67a6a3584d409, findElement {value=//span[contains(text(),&apos;Verify Mobile&apos;)], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.168, chrome: {chromedriverVersion: 148.0.7778.167 (65db666ac2c..., userDataDir: C:\Users\sunil\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58595}, goog:processID: 17752, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58595/devtoo..., se:cdpVersion: 148.0.7778.168, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6769526e8df96b709ac67a6a3584d409
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:652)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at com.onesports.pageObjects.RegistrationPage.waitForClickable(RegistrationPage.java:129)
+	at com.onesports.pageObjects.RegistrationPage.clickVerifyMobile(RegistrationPage.java:181)
+	at com.onesports.pageObjects.RegistrationPage.verifyMobileOTP(RegistrationPage.java:272)
+	at com.onesports.tests.RegistrationTest.registerNewUserTest(RegistrationTest.java:45)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-Caused by: java.lang.RuntimeException: Failed to load config.properties
-	at com.onesports.resources.ConfigManager.&lt;clinit&gt;(ConfigManager.java:16)
-	... 35 more
-... Removed 33 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.onesports.tests.RegistrationTest#setUp</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.onesports.tests.RegistrationTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.onesports.tests.RegistrationTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.onesports.tests.RegistrationTest#registerExistingEnquiryRecordTest</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th><th>Parameter #9</th></tr><tr class="param stripe"><td>Dev Gowda Kumar</td><td>Kumar</td><td>Dev1766143171343@yopmail.com</td><td>9808389961</td><td>9998887776</td><td>Telangana</td><td>Hyderabad</td><td>UGB</td><td>Sree@123</td></tr><tr><th colspan="9">Exception</th></tr><tr><td colspan="9"><div class="stacktrace">java.lang.ExceptionInInitializerError
-	at com.onesports.base.BaseTest.setUp(BaseTest.java:24)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-Caused by: java.lang.RuntimeException: Failed to load config.properties
-	at com.onesports.resources.ConfigManager.&lt;clinit&gt;(ConfigManager.java:16)
-	... 35 more
-... Removed 33 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.onesports.tests.RegistrationTest#registerUserTest</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>com.onesports.models.userData@545b995e</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.ExceptionInInitializerError
-	at com.onesports.base.BaseTest.setUp(BaseTest.java:24)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-Caused by: java.lang.RuntimeException: Failed to load config.properties
-	at com.onesports.resources.ConfigManager.&lt;clinit&gt;(ConfigManager.java:16)
-	... 35 more
 ... Removed 33 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.onesports.tests;
 import static com.onesports.base.BaseTest.driver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,12 +20,20 @@ import com.onesports.pageObjects.StudentDeclaration6thStep;
 import com.onesports.pageObjects.StudentDetails1stStep;
 import com.onesports.pageObjects.StudentPayments2ndStep;
 import com.onesports.pageObjects.StudentUploadFiles5thStep;
+import com.onesports.resources.ConfigManager;
 import com.onesports.utilities.Utils;
 
 public class LoginTest extends BaseTest {
-    
+ 
    @Test
-    public void validLoginTest() throws Throwable {
+   public void validLoginTest() throws Throwable {
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        LoginPage login = new LoginPage(getDriver());
+        login.loginTab();
+        login.login(ConfigManager.getStudentMobile(), ConfigManager.getStudentPassword());
+  
+  // @Test
+    public void loginToFillApplication() throws Throwable {
         getDriver().get("https://suadm-stg.suh.edu.in/student/apply-now");
         LoginPage login = new LoginPage(getDriver());
         login.loginTab();

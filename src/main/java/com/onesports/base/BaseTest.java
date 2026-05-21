@@ -6,13 +6,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import com.onesports.listeners.TestListener;
 import com.onesports.resources.ConfigManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+@Listeners(TestListener.class)
 public class BaseTest {
 
-      // Thread-safe WebDriver per test thread
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    // Thread-safe WebDriver per test thread
+    public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public WebDriver getDriver() {
         return driver.get();
