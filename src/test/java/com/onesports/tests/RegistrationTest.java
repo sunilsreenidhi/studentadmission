@@ -24,6 +24,7 @@ import com.onesports.pageObjects.StudentDeclaration6thStep;
 import com.onesports.pageObjects.StudentDetails1stStep;
 import com.onesports.pageObjects.StudentPayments2ndStep;
 import com.onesports.pageObjects.StudentUploadFiles5thStep;
+import com.onesports.resources.ConfigManager;
 import com.onesports.utilities.DbUtils;
 import com.onesports.utilities.PaymentUtils;
 import com.onesports.utilities.Utils;
@@ -33,30 +34,84 @@ import com.onesports.dataproviders.TestData;
 
 public class RegistrationTest extends BaseTest{
 
-  @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
-  public void registerNewUserTest(userData user) throws Throwable
+   @Test(priority = 1, groups = {"smoke"})
+    public void verifyRegistrationPageLoads() {
+
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        RegistrationPage register = new RegistrationPage(getDriver());
+        Assert.assertTrue(
+                register.isRegisterTabVisible(),
+                "Registration page not loaded"
+        );
+    }
+
+      @Test(priority = 2, groups = {"smoke"})
+    public void verifyMandatoryFieldsVisible() {
+   getDriver().get(ConfigManager.getStudentApplyUrl());
+        RegistrationPage register =
+                new RegistrationPage(getDriver());
+        Assert.assertTrue(register.isInitialsFieldVisible());
+        Assert.assertTrue(register.isFullNameFieldVisible());
+        Assert.assertTrue(register.isSurnameFieldVisible());
+        Assert.assertTrue(register.isMobileFieldVisible());
+        Assert.assertTrue(register.isEmailFieldVisible());
+        Assert.assertTrue(register.isCityFieldVisible());
+        Assert.assertTrue(register.isCourseDropdownVisible());
+        Assert.assertTrue(register.isPasswordFieldVisible());
+        Assert.assertTrue(register.isCaptchaFieldVisible());
+        Assert.assertTrue(register.isTermsCheckboxVisible());
+        Assert.assertTrue(register.isSubmitButtonVisible());
+    }
+
+    @Test(priority = 5, groups = {"smoke"})
+    public void verifyCourseDropdownSelectable() {
+   getDriver().get(ConfigManager.getStudentApplyUrl());
+
+        RegistrationPage register =
+                new RegistrationPage(getDriver());
+
+        register.selectCourse("UG");
+
+        Assert.assertEquals(
+                register.getSelectedCourse(),
+                "UG-Engineering"
+        );
+    }
+
+       @Test(priority = 6, groups = {"smoke"})
+    public void verifySpecializationDependency() {
+         getDriver().get(ConfigManager.getStudentApplyUrl());
+        RegistrationPage register =
+                new RegistrationPage(getDriver());
+
+        register.selectCourse("UG");
+
+        Assert.assertTrue(
+                register.isSpecializationDropdownEnabled(),
+                "Specialization dropdown should be enabled when UG-Engineering is selected"
+        );
+    }
+
+
+  @Test(groups ={"smoke"}, dataProvider = "registrationData",dataProviderClass=TestData.class)
+  public void registerValidNewUser(userData user) throws Throwable
   { 
 
-      getDriver().get("https://suadm-stg.suh.edu.in/student/apply-now");
-   //     driver.get(ConfigReader.getBaseURL());
+        getDriver().get(ConfigManager.getStudentApplyUrl());
            RegistrationPage reg = new RegistrationPage(getDriver());
-
            reg.fillBasicDetails(user);
            reg.verifyMobileOTP(user.getMobile());
            reg.completeRegistration(user);
       
-         StudentDetails1stStep detailsPage = new StudentDetails1stStep(getDriver());
+      StudentDetails1stStep detailsPage = new StudentDetails1stStep(getDriver());
       Assert.assertTrue(detailsPage.isStepVisible("Applicant and Program Details"), "Failed to navigate to Student Details step");
-     
-
   }
 
-   //   @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
-    public void registerUserToFillApplication(userData user ) throws Throwable 
+   //  @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
+      public void registerUserToFillApplication(userData user ) throws Throwable 
 
   {   
-        getDriver().get("https://suadm-stg.suh.edu.in/student/apply-now");
-   //     driver.get(ConfigReader.getBaseURL());
+        getDriver().get(ConfigManager.getStudentApplyUrl());
            RegistrationPage reg = new RegistrationPage(getDriver());
 
            reg.fillBasicDetails(user);
@@ -140,40 +195,4 @@ public class RegistrationTest extends BaseTest{
          declarationPage.setDeclarationAgreement(true);
          declarationPage.clickConfirmAndSubmit(); 
       }
-        //    Assert.assertTrue(reg.isUserProfileVisible());
-    
-
-    
-    //@Test(dataProvider = "getexistingEnquiryRecord",dataProviderClass =TestData.class)
-    public void registerExistingEnquiryRecordTest(String fullName,String surname,String email,
-      String mobile,String altMobile,String state,String city, String course, String password) throws InterruptedException
-    {
-          getDriver().get("https://suadm-dev.suh.edu.in/apply-now");
-           RegistrationPage reg = new RegistrationPage(getDriver());
-
-        reg.enterFullName(fullName);
-        reg.enterSurname(surname);
-        reg.enterEmail(email);
-        reg.enterMobile(mobile);
-        reg.selectCity(city);
-        reg.selectCourse(course);
-
-        reg.clickVerifyMobile();
-        String otp = DbUtils.getLatestOtp(mobile);
-         System.out.println("Fetched OTP : " + otp);
-
-          reg.enterOtp(otp);
-        reg.clickOtpVerify();
-        reg.enterPassword(password);
-        reg.fillCaptcha();
-        reg.checkAgree();
-        Utils.scrollToBottomOfPageFully(getDriver());
-        reg.submitApplication();
-        
-
-
     }
-  
-}
-
-

@@ -170,6 +170,12 @@ public static void waitForSpinnerToDisappear(WebDriver driver, By spinnerLocator
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(webElement));
 	}
+
+		
+	public static void waitForElementToBeVisiblee(WebDriver driver, WebElement webElement) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(webElement));
+	}
 	
 		
 	public static void presenceOfElementLocated(WebDriver driver, By webElement) {

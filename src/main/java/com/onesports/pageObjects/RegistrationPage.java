@@ -213,6 +213,7 @@ public class RegistrationPage  {
 
     // Course & Specialization
     public void selectCourse(String course) {
+        waitForVisible(courseSelect);
         selectByVisibleText(courseSelect, course);
     }
 
@@ -285,5 +286,63 @@ public class RegistrationPage  {
     submitApplication();
     }
 }
+
+public boolean isRegisterTabVisible() {
+        return waitForVisible(registerTab).isDisplayed();
+    }
+
+    public boolean isInitialsFieldVisible() {
+        return waitForVisible(initials).isDisplayed();
+    }
+
+    public boolean isFullNameFieldVisible() {
+        return waitForVisible(fullNameInput).isDisplayed();
+    }
+
+    public boolean isSurnameFieldVisible() {
+        return waitForVisible(surnameInput).isDisplayed();
+    }
+
+    public boolean isEmailFieldVisible() {
+        return waitForVisible(emailInput).isDisplayed();
+    }
+
+    public boolean isMobileFieldVisible() {
+        return waitForVisible(mobileInput).isDisplayed();
+    }
+
+    public boolean isCityFieldVisible() {
+        return waitForVisible(citySelect).isDisplayed();
+    }
+
+    public boolean isCourseDropdownVisible() {
+        return waitForVisible(courseSelect).isDisplayed();
+    }
+
+    public boolean isPasswordFieldVisible() {
+        return waitForVisible(passwordInput).isDisplayed();
+    }
+
+    public boolean isCaptchaFieldVisible() {
+        return waitForVisible(captchaInput).isDisplayed();
+    }
+
+    public boolean isTermsCheckboxVisible() {
+        return waitForVisible(agreeCheckbox).isDisplayed();
+    }
+
+    public boolean isSubmitButtonVisible() {
+        return waitForVisible(submitButtonTextSpan).isDisplayed();
+    }
+
+    public String getSelectedCourse() {
+        WebElement el = waitForVisible(courseSelect);
+        return new Select(el).getFirstSelectedOption().getText();
+    }
+
+    public boolean isSpecializationDropdownEnabled(){
+
+        return waitForVisible(specialization1Select).isEnabled();
+    }
 
 }

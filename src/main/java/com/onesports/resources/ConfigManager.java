@@ -49,6 +49,10 @@ public class ConfigManager {
        return prop.getProperty(getEnv() + ".student.mobile");
     }
 
+     public static String getStudentEmail() {
+       return prop.getProperty(getEnv() + ".student.email");
+    }
+    
     public static String getStudentPassword() {
         return prop.getProperty(getEnv() + ".student.password");
     }

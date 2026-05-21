@@ -22,6 +22,8 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }   
 
+    @FindBy(css = "img[alt='SU-MYADMIT360 Logo']")
+    private WebElement loginPageLogoElement;
     
     @FindBy(xpath  ="//button[normalize-space()='Login']")
     private WebElement loginTab;
@@ -49,7 +51,7 @@ public class LoginPage {
      }
 
     public void login(String email, String password) {
-        Utils.waitForElementVisiblility(driver, emailField);
+        Utils.waitForElementToBeVisiblee(driver, emailField);
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
         loginButton.click();
@@ -57,6 +59,11 @@ public class LoginPage {
 
     public void loginTab() {
         loginTab.click();
+    }
+
+    public boolean LogoisDisplayed() {
+        Utils.waitForElementToBeVisiblee(driver, loginPageLogoElement);
+        return loginPageLogoElement.isDisplayed();
     }
 
 }

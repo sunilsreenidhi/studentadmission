@@ -24,13 +24,33 @@ import com.onesports.resources.ConfigManager;
 import com.onesports.utilities.Utils;
 
 public class LoginTest extends BaseTest {
+
+   @Test(groups = {"smoke"})
+   public void verifyLoginPageLoadsAndLogoDisplayed() throws Throwable {
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        LoginPage login = new LoginPage(getDriver());
+        login.loginTab();
+        Assert.assertTrue(login.LogoisDisplayed(), "Login failed - Dashboard breadcrumb not visible");
+    }
  
-   @Test
-   public void validLoginTest() throws Throwable {
+   @Test(groups = {"smoke"})
+   public void validLoginTestwithMobileAndPassword() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());
         LoginPage login = new LoginPage(getDriver());
         login.loginTab();
         login.login(ConfigManager.getStudentMobile(), ConfigManager.getStudentPassword());
+        Assert.assertTrue(login.LogoisDisplayed());
+   }
+
+      @Test(groups = {"smoke"})
+      public void validLoginTestwithEmailAndPassword() throws Throwable {
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        LoginPage login = new LoginPage(getDriver());
+        login.loginTab();
+        login.login(ConfigManager.getStudentEmail(), ConfigManager.getStudentPassword());
+         Assert.assertTrue(login.LogoisDisplayed());
+   }
+  
   
   // @Test
     public void loginToFillApplication() throws Throwable {
