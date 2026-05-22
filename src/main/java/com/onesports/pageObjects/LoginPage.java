@@ -22,7 +22,7 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }   
 
-    @FindBy(css = "img[alt='SU-MYADMIT360 Logo']")
+    @FindBy(css = "img[src*='myadmit360-logo']")
     private WebElement loginPageLogoElement;
     
     @FindBy(xpath  ="//button[normalize-space()='Login']")
@@ -46,7 +46,13 @@ public class LoginPage {
     @FindBy(xpath="//span[text()='Dashboard']")
     private WebElement dashboardBreadcrumb;
 
-     public WebElement dashboardBreadcrumbVisible() {
+    @FindBy(xpath="//div[i[contains(@class, 'mdi-account-outline')]]")
+    private WebElement studentProfileIcon;
+
+    @FindBy(xpath="//button[.//div[text()='Logout']]")
+    private WebElement logoutButton;
+
+    public WebElement dashboardBreadcrumbVisible() {
     return dashboardBreadcrumb;
      }
 
@@ -64,6 +70,28 @@ public class LoginPage {
     public boolean LogoisDisplayed() {
         Utils.waitForElementToBeVisiblee(driver, loginPageLogoElement);
         return loginPageLogoElement.isDisplayed();
+    }
+
+    public boolean isEmailFieldVisible() {
+        return wait.until(ExpectedConditions.visibilityOf(emailField)).isDisplayed();
+    }
+
+    public boolean isPasswordFieldVisible() {
+        return wait.until(ExpectedConditions.visibilityOf(passwordField)).isDisplayed();
+    }
+
+    public void logout() {
+        wait.until(ExpectedConditions.elementToBeClickable(studentProfileIcon)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(logoutButton)).click();
+    }
+
+    public boolean isLoginButtonClickable() {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

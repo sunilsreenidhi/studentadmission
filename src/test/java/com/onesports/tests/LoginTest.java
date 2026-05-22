@@ -2,7 +2,11 @@ package com.onesports.tests;
 
 import static com.onesports.base.BaseTest.driver;
 
+import java.util.Set;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -32,6 +36,15 @@ public class LoginTest extends BaseTest {
         login.loginTab();
         Assert.assertTrue(login.LogoisDisplayed(), "Login failed - Dashboard breadcrumb not visible");
     }
+
+    @Test(groups = {"smoke"})
+    public void verifyMandatoryFieldsVisible() throws Throwable {
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        LoginPage login = new LoginPage(getDriver());
+        login.loginTab();
+        Assert.assertTrue(login.isEmailFieldVisible(), "Email field is not visible");
+        Assert.assertTrue(login.isPasswordFieldVisible(), "Password field is not visible");
+    }
  
    @Test(groups = {"smoke"})
    public void validLoginTestwithMobileAndPassword() throws Throwable {
@@ -50,8 +63,62 @@ public class LoginTest extends BaseTest {
         login.login(ConfigManager.getStudentEmail(), ConfigManager.getStudentPassword());
          Assert.assertTrue(login.LogoisDisplayed());
    }
+
+   @Test(groups = {"smoke"})
+   public void verifyLogout() throws Throwable {
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        LoginPage login = new LoginPage(getDriver());
+        login.loginTab();
+      login.login(ConfigManager.getStudentEmail(), ConfigManager.getStudentPassword());
+      login.logout();
+      Assert.assertTrue(login.isEmailFieldVisible(), "Logout failed - Login page not displayed");
+   }
+
+   @Test(groups = {"smoke"})
+   public void verifyLoginButtonIsClickable() throws Throwable {
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        LoginPage login = new LoginPage(getDriver());
+        login.loginTab();
+        Assert.assertTrue(login.isLoginButtonClickable(), "Login failed - Login button is not clickable");
+    }
   
-  
+  @Test(groups = {"smoke"})
+    public void verifySessionCreatedAfterLogin() throws Throwable {
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        LoginPage login = new LoginPage(getDriver());
+        login.loginTab();
+         login.login(ConfigManager.getStudentEmail(), ConfigManager.getStudentPassword());
+         Assert.assertTrue(login.LogoisDisplayed(), "Login failed - Dashboard breadcrumb not visible");
+
+         JavascriptExecutor js =
+        (JavascriptExecutor) getDriver();
+
+   String token = (String) js.executeScript(
+            "return window.localStorage.getItem('applicant_token');"
+    );
+
+    System.out.println("Applicant Token : " + token);
+
+    Assert.assertNotNull(token,
+            "Session token was not created after login");
+    }
+   
+
+    @Test(groups = {"regression"})
+    public void verifyRedirectToLoginPageAfterSessionExpiry() throws Throwable {
+        getDriver().get(ConfigManager.getStudentApplyUrl());
+        LoginPage login = new LoginPage(getDriver());
+        login.loginTab();
+         login.login(ConfigManager.getStudentEmail(), ConfigManager.getStudentPassword());
+         Assert.assertTrue(login.LogoisDisplayed(), "Session did not expire - Still logged in after refresh");
+          JavascriptExecutor js =
+        (JavascriptExecutor) getDriver();
+
+    js.executeScript("window.localStorage.clear();");
+    js.executeScript("window.sessionStorage.clear();");
+         getDriver().navigate().refresh();
+         Assert.assertTrue(login.isEmailFieldVisible(), "Session did not expire - Still logged in after refresh");
+    }
   // @Test
     public void loginToFillApplication() throws Throwable {
         getDriver().get("https://suadm-stg.suh.edu.in/student/apply-now");
