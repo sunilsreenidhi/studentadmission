@@ -22,7 +22,7 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }   
 
-    @FindBy(css = "img[src*='myadmit360-logo']")
+    @FindBy(css = "img[alt*='SU-MYADMIT360 Logo']")
     private WebElement loginPageLogoElement;
     
     @FindBy(xpath  ="//button[normalize-space()='Login']")

@@ -1,7 +1,11 @@
 package com.onesports.base;
 
+import java.time.Duration;
+
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -40,11 +44,25 @@ public class BaseTest {
                 
             default:
                 WebDriverManager.chromedriver().setup();
-                webDriver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+
+if(System.getProperty("headless") != null) {
+    options.addArguments("--headless=new");
+}
+
+options.addArguments("--no-sandbox");
+options.addArguments("--disable-dev-shm-usage");
+options.addArguments("--remote-allow-origins=*");
+options.addArguments("--user-data-dir=/tmp/chrome-" + System.currentTimeMillis());
+
+                webDriver = new ChromeDriver(options);
         }
 
         driver.set(webDriver);
-        getDriver().manage().window().maximize();
+        getDriver().manage().window().setSize(new Dimension(1920,1080));
+           getDriver().manage().timeouts()
+                .implicitlyWait(Duration.ofSeconds(10));
+      //  getDriver().manage().window().maximize();
     }
     
 

@@ -6,7 +6,6 @@ com\onesports\pageObjects\PaymentGatewayPage.class
 com\onesports\pageObjects\LoginPage.class
 com\onesports\pageObjects\StudentAcademicDetails4thStep.class
 com\onesports\utilities\PaymentUtils.class
-com\onesports\utilities\ConfigManager.class
 com\onesports\pageObjects\EnquiryPage.class
 com\onesports\listeners\TestListener.class
 com\onesports\pageObjects\StudentUploadFiles5thStep.class

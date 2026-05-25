@@ -4,14 +4,15 @@
   <listeners>
     <listener class-name="com.onesports.listeners.TestListener"/>
   </listeners>
-  <test thread-count="5" name="RegistrationTests(failed)" verbose="0">
+  <test thread-count="5" name="LoginTest(failed)" verbose="0">
     <classes>
-      <class name="com.onesports.tests.RegistrationTest">
+      <class name="com.onesports.tests.LoginTest">
         <methods>
-          <include name="registerNewUserTest" invocation-numbers="0"/>
+          <include name="verifyMandatoryFieldsVisible"/>
+          <include name="verifyLoginPageLoadsAndLogoDisplayed"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.onesports.tests.RegistrationTest -->
+      </class> <!-- com.onesports.tests.LoginTest -->
     </classes>
-  </test> <!-- RegistrationTests(failed) -->
+  </test> <!-- LoginTest(failed) -->
 </suite> <!-- Failed suite [RegistrationSuite] -->
