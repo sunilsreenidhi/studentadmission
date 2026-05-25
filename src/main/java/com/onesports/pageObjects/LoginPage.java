@@ -57,7 +57,8 @@ public class LoginPage {
      }
 
     public void login(String email, String password) {
-        Utils.waitForElementToBeVisiblee(driver, emailField);
+           wait.until(ExpectedConditions.refreshed(
+            ExpectedConditions.visibilityOf(emailField)));  // stale element handling
         emailField.sendKeys(email);
         passwordField.sendKeys(password);
         loginButton.click();

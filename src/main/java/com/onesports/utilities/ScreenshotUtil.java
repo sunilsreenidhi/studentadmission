@@ -14,18 +14,26 @@ public class ScreenshotUtil {
             File src = ((TakesScreenshot) driver)
                     .getScreenshotAs(OutputType.FILE);
 
-            File screenshotDir = new File(System.getProperty("user.dir")
-                    + File.separator + "reports"
-                    + File.separator + "screenshots");
-            if (!screenshotDir.exists()) {
-                screenshotDir.mkdirs();
-            }
+                      String relativePath =
+                "screenshots/"
+                + testName + "_"
+                + System.currentTimeMillis()
+                + ".png";
 
-            String path = screenshotDir.getAbsolutePath()
-                    + File.separator + testName + "_" + System.currentTimeMillis() + ".png";
+        String absolutePath =
+                System.getProperty("user.dir")
+                + File.separator
+                + "reports"
+                + File.separator
+                + relativePath;
 
-            FileUtils.copyFile(src, new File(path));
-            return path;
+        File dest = new File(absolutePath);
+
+        dest.getParentFile().mkdirs();
+
+        FileUtils.copyFile(src, dest);
+
+        return relativePath;
 
         } catch (Exception e) {
             e.printStackTrace();
