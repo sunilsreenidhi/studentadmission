@@ -65,7 +65,11 @@ public class LoginPage {
     }
 
     public void loginTab() {
+         wait.until(ExpectedConditions.refreshed(
+            ExpectedConditions.visibilityOf(loginTab)));
         loginTab.click();
+            wait.until(ExpectedConditions.refreshed(
+            ExpectedConditions.visibilityOf(emailField)));
     }
 
     public boolean LogoisDisplayed() {

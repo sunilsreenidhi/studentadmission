@@ -14,7 +14,7 @@ public class ExtentReportsTestNG {
 		String path = System.getProperty("user.dir") + File.separator + "reports" + File.separator + "ExtentReport.html";
 		
 		ExtentSparkReporter reporter= new ExtentSparkReporter(path);
-		reporter.config().setCSS("body {font-family: Arial, sans-serif;} .some-class {color: blue; }"); 
+	//	reporter.config().setCSS("body {font-family: Arial, sans-serif;} .some-class {color: blue; }"); 
 
 	//	ExtentSparkReporter reporter= new ExtentSparkReporter("reports/extent-spark-report.html");
 		reporter.config().setTheme(Theme.STANDARD);

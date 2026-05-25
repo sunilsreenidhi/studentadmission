@@ -9,16 +9,24 @@ import org.openqa.selenium.WebDriver;
 
 public class ScreenshotUtil {
 
-    public static String takeScreenshot(WebDriver driver, String testName) {
-        try {
-            File src = ((TakesScreenshot) driver)
-                    .getScreenshotAs(OutputType.FILE);
+   public static String takeScreenshot(WebDriver driver,
+                                    String testName) {
 
-                      String relativePath =
-                "screenshots/"
-                + testName + "_"
+    String relativePath = null;
+
+    try {
+
+        File src =
+                ((TakesScreenshot) driver)
+                        .getScreenshotAs(OutputType.FILE);
+
+        String fileName =
+                testName + "_"
                 + System.currentTimeMillis()
                 + ".png";
+
+        relativePath =
+                "screenshots/" + fileName;
 
         String absolutePath =
                 System.getProperty("user.dir")
@@ -33,13 +41,16 @@ public class ScreenshotUtil {
 
         FileUtils.copyFile(src, dest);
 
-        return relativePath;
+        System.out.println("Screenshot saved at : "
+                + absolutePath);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    } catch (Exception e) {
+
+        e.printStackTrace();
     }
+
+    return relativePath;
+}
 }
 
     

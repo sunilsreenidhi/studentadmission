@@ -41,27 +41,41 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ExtentTest test = extentTest.get();
-        test.log(Status.FAIL, result.getThrowable());
 
-        Object testInstance = result.getInstance();
-        if (testInstance instanceof BaseTest) {
-            WebDriver driver = ((BaseTest) testInstance).getDriver();
-            if (driver != null) {
-                String screenshotPath = ScreenshotUtil.takeScreenshot(driver, result.getMethod().getMethodName());
-                if (screenshotPath != null) {
-                    try {
-                        test.fail("Screenshot captured on failure",
-                                MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-                    } catch (Exception e) {
-                        test.fail("Screenshot could not be attached: " + e.getMessage());
-                    }
-                    Reporter.log("Saved screenshot for failed test: " + screenshotPath + "<br>");
-                    Reporter.log("<a href='file://" + screenshotPath + "' target='_blank'>Open screenshot</a><br>");
-                } else {
-                    Reporter.log("Failed to capture screenshot for test: " + result.getName() + "<br>");
-                }
+    test.fail(result.getThrowable());
+
+    Object testInstance = result.getInstance();
+
+    if (testInstance instanceof BaseTest) {
+
+        WebDriver driver =
+                ((BaseTest) testInstance).getDriver();
+
+        if (driver != null) {
+
+            String screenshotPath =
+                    ScreenshotUtil.takeScreenshot(
+                            driver,
+                            result.getMethod().getMethodName());
+
+            try {
+
+                test.fail(
+                        "Screenshot on failure",
+                        MediaEntityBuilder
+                                .createScreenCaptureFromPath(
+                                        screenshotPath)
+                                .build());
+
+            } catch (Exception e) {
+
+                test.fail("Unable to attach screenshot : "
+                        + e.getMessage());
+
+                e.printStackTrace();
             }
         }
+    }
     }
 
     @Override
