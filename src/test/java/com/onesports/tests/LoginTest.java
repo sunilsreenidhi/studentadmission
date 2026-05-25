@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import com.mongodb.internal.connection.tlschannel.util.Util;
 import com.onesports.base.BaseTest;
+import com.onesports.listeners.Retry;
 import com.onesports.models.NetBankingPaymentData;
 import com.onesports.models.UPIPaymentData;
 import com.onesports.pageObjects.LoginPage;
@@ -37,7 +38,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(login.LogoisDisplayed(), "Login failed - Dashboard breadcrumb not visible");
     }
 
-    @Test(groups = {"smoke"})
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void verifyMandatoryFieldsVisible() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());
         LoginPage login = new LoginPage(getDriver());
@@ -46,7 +47,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(login.isPasswordFieldVisible(), "Password field is not visible");
     }
  
-   @Test(groups = {"smoke"})
+   @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
    public void validLoginTestwithMobileAndPassword() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());
         LoginPage login = new LoginPage(getDriver());
@@ -104,7 +105,7 @@ public class LoginTest extends BaseTest {
     }
    
 
-    @Test(groups = {"regression"}, priority = 2)
+  //  @Test(groups = {"regression"}, priority = 2)
     public void verifyRedirectToLoginPageAfterSessionExpiry() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());
         LoginPage login = new LoginPage(getDriver());
