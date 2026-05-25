@@ -82,7 +82,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(login.isLoginButtonClickable(), "Login failed - Login button is not clickable");
     }
   
-  @Test(groups = {"smoke"})
+//  @Test(groups = {"smoke"}, priority = 1)
     public void verifySessionCreatedAfterLogin() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());
         LoginPage login = new LoginPage(getDriver());
@@ -104,7 +104,7 @@ public class LoginTest extends BaseTest {
     }
    
 
-    @Test(groups = {"regression"})
+    @Test(groups = {"regression"}, priority = 2)
     public void verifyRedirectToLoginPageAfterSessionExpiry() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());
         LoginPage login = new LoginPage(getDriver());

@@ -68,16 +68,17 @@ public class LoginPage {
     }
 
     public boolean LogoisDisplayed() {
-        Utils.waitForElementToBeVisiblee(driver, loginPageLogoElement);
-        return loginPageLogoElement.isDisplayed();
+        return wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(loginPageLogoElement))).isDisplayed();
+      //  Utils.waitForElementToBeVisiblee(driver, loginPageLogoElement);
+
     }
 
     public boolean isEmailFieldVisible() {
-        return wait.until(ExpectedConditions.visibilityOf(emailField)).isDisplayed();
+        return wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(emailField))).isDisplayed();
     }
 
     public boolean isPasswordFieldVisible() {
-        return wait.until(ExpectedConditions.visibilityOf(passwordField)).isDisplayed();
+        return wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(passwordField))).isDisplayed();
     }
 
     public void logout() {

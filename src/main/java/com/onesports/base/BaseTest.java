@@ -66,7 +66,7 @@ options.addArguments("--user-data-dir=/tmp/chrome-" + System.currentTimeMillis()
     }
     
 
-  // @AfterMethod
+   @AfterMethod
     public void tearDown() {
         if (getDriver() != null) {
             getDriver().quit();

@@ -1,23 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 47.382 s <<< FAILURE! - in TestSuite
-verifyLoginPageLoadsAndLogoDisplayed(com.onesports.tests.LoginTest)  Time elapsed: 17.114 s  <<< FAILURE!
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: img[src*='myadmit360-logo']' (tried for 15 second(s) with 500 milliseconds interval)
-	at com.onesports.tests.LoginTest.verifyLoginPageLoadsAndLogoDisplayed(LoginTest.java:37)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-no such element: Unable to locate element: {"method":"css selector","selector":"img[src*='myadmit360-logo']"}
-  (Session info: chrome=148.0.7778.179)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.27.0', revision: 'd6e718d134'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e3f339c0237af7ea9c3d6c23916a219e, findElement {value=img[src*='myadmit360-logo'], using=css selector}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\sunil\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60218}, goog:processID: 8568, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60218/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e3f339c0237af7ea9c3d6c23916a219e
-	at com.onesports.tests.LoginTest.verifyLoginPageLoadsAndLogoDisplayed(LoginTest.java:37)
-
-verifyMandatoryFieldsVisible(com.onesports.tests.LoginTest)  Time elapsed: 1.933 s  <<< FAILURE!
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 31.646 s <<< FAILURE! - in TestSuite
+verifySessionCreatedAfterLogin(com.onesports.tests.LoginTest)  Time elapsed: 1.779 s  <<< FAILURE!
 org.openqa.selenium.StaleElementReferenceException: 
 stale element reference: stale element not found in the current frame
   (Session info: chrome=148.0.7778.179)
@@ -25,9 +10,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.27.0', revision: 'd6e718d134'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [b2b0008de12bf935a0893fba61a3fc34, isElementDisplayed {id=f.1F3512DECCB20D234375C56C2481CD21.d.B40619025DB88C18FBFEDC661A06BCD1.e.8}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\sunil\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51529}, goog:processID: 22420, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51529/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (b2b0008de12bf935a0893fba61a3fc34)] -> css selector: input[formcontrolname='email']]
-Session ID: b2b0008de12bf935a0893fba61a3fc34
-	at com.onesports.tests.LoginTest.verifyMandatoryFieldsVisible(LoginTest.java:45)
+Command: [d2d9890b59812caea2470f51dd577de7, isElementDisplayed {id=f.594D1FDCD0D4AD772D739265B052922C.d.9DEBCD49FA43A0E7F2861130D758EED9.e.8}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: /tmp/chrome-1779701109037}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62611}, goog:processID: 26792, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62611/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (d2d9890b59812caea2470f51dd577de7)] -> css selector: input[formcontrolname='email']]
+Session ID: d2d9890b59812caea2470f51dd577de7
+	at com.onesports.tests.LoginTest.verifySessionCreatedAfterLogin(LoginTest.java:90)
 

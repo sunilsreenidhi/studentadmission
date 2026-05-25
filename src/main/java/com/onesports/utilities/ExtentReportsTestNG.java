@@ -20,6 +20,7 @@ public class ExtentReportsTestNG {
 		reporter.config().setTheme(Theme.STANDARD);
 		reporter.config().setReportName("Web Automation Results");
 		reporter.config().setDocumentTitle("Test Results");
+		reporter.config().enableOfflineMode(true);
 		 reporter.config().setEncoding("UTF-8");
 		 
 		ExtentReports extent= new ExtentReports();

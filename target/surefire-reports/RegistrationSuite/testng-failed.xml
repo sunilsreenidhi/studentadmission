@@ -8,8 +8,8 @@
     <classes>
       <class name="com.onesports.tests.LoginTest">
         <methods>
-          <include name="verifyMandatoryFieldsVisible"/>
-          <include name="verifyLoginPageLoadsAndLogoDisplayed"/>
+          <include name="verifySessionCreatedAfterLogin"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.onesports.tests.LoginTest -->
