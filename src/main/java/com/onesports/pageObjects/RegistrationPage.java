@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.onesports.models.userData;
+import com.onesports.models.UserData;
 import com.onesports.utilities.DbUtils;
 import com.onesports.utilities.Utils;
 
@@ -30,6 +30,7 @@ public class RegistrationPage  {
 
     // -------- WebElements (with @FindBy) --------
 
+    
     // Tabs
     @FindBy(css="select[formcontrolname='title']")
     private WebElement initials;
@@ -113,6 +114,8 @@ public class RegistrationPage  {
 
      @FindBy(xpath = "//button[.//i[contains(@class,'mdi-account-outline')]]")
     private By studentProfileIcon; 
+
+
    
     // -------- Private helpers --------
 
@@ -259,7 +262,7 @@ public class RegistrationPage  {
         waitForClickable(button).click();
     }
 
-    public void fillBasicDetails(userData user) throws InterruptedException {
+    public void fillBasicDetails(UserData user) throws InterruptedException {
     selectInitials(user.getInitials());
     enterFullName(user.getFullName());
     enterSurname(user.getSurname());
@@ -277,7 +280,7 @@ public class RegistrationPage  {
         clickOtpVerify();
     }
 
-    public void completeRegistration(userData user) throws InterruptedException {
+    public void completeRegistration(UserData user) throws InterruptedException {
     {     
     enterPassword(user.getPassword());
     fillCaptcha();

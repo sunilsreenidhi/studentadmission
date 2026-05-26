@@ -2,7 +2,7 @@ package com.onesports.dataproviders;
 
 import org.testng.annotations.DataProvider;
 
-import com.onesports.models.userData;
+import com.onesports.models.UserData;
 import com.onesports.utilities.Utils;
 
 public class TestData {
@@ -17,7 +17,21 @@ public class TestData {
   //       };
   //   }
 	
-	
+	@DataProvider(name = "FirstStepMandatoryFields")
+public Object[][] FirstStepMandatoryFields()
+{
+    return new Object[][] {
+
+         {"photo", "Photo is required"},
+            {"dob", "Date of Birth is required"},
+            {"gender", "Gender is required"},
+            {"aadhaarNumber", "Aadhaar Number is required"},
+            {"bloodGroup", "Blood Group is required"},
+            {"admissionType", "Admission Type is required"},
+            {"fatherName", "Father Name is required"},
+            {"motherName", "Mother Name is required"}
+    };
+}
 	@DataProvider(name="searchInputs")
 	public Object[][] searchInputs() {
 	
@@ -206,7 +220,7 @@ public class TestData {
         String fullName = firstName + " " + surName;
         String mobile = Utils.randomPhone();
 
-        userData user = new userData(
+        UserData user = new UserData(
                 "Mr",
                 fullName,
                 surName,
@@ -257,7 +271,7 @@ public Object[][] getRegistrationData() throws InterruptedException {
     String fullName  = firstName + " " + surName;
     String mobile = Utils.randomPhone();
 
-    userData user = new userData(
+    UserData user = new UserData(
             "Mr",
             fullName,
             surName,

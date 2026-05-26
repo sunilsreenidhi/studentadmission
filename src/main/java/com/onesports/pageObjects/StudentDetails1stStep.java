@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.onesports.models.UserData;
 import com.onesports.utilities.Utils;
 
 import groovyjarjarantlr4.v4.parse.ANTLRParser.prequelConstruct_return;
@@ -122,6 +123,43 @@ public class StudentDetails1stStep {
 
     @FindBy(xpath = "//button[contains(normalize-space(.), 'Make Payment')]")
     private WebElement makePaymentButton;
+
+    @FindBy(xpath = "//div//p[contains(text(),' Profile Photo is required')]")
+    private WebElement photoUploadValidationMessage;
+
+    @FindBy(xpath = "//div//p[contains(text(),' Aadhar card is required ')]")   
+    private WebElement aadharUploadValidationMessage;
+
+    @FindBy(xpath = "//input[@formcontrolname='dateOfBirth']/following-sibling::span")
+    WebElement dobValidationMessage;
+
+    @FindBy(xpath = "//select[@formcontrolname='gender']/following-sibling::span")
+    WebElement genderValidationMessage;
+
+    @FindBy(xpath = "//input[@formcontrolname='aadhaarNumber']/following-sibling::span")
+    WebElement aadhaarRequiredValidation;
+
+    @FindBy(xpath = "//input[@formcontrolname='aadhaarNumber']/following-sibling::p")
+    private WebElement aadhaarLengthValidation;
+
+    @FindBy(xpath = "//select[@formcontrolname='bloodGroup']/following-sibling::span")
+    private WebElement bloodGroupValidation;
+
+    @FindBy(xpath = "//input[@formcontrolname='fatherName']/following-sibling::span")
+    private WebElement fatherNameValidation;
+
+    @FindBy(xpath = "//input[@formcontrolname='motherName']/following-sibling::span")
+    private WebElement motherNameValidation;
+
+    @FindBy(xpath = "//select[@formcontrolname='admissionType']/following-sibling::span")
+    private WebElement admissionTypeValidation;
+
+    @FindBy(xpath = "//select[@formcontrolname='transportRequired']/following-sibling::span")
+    private WebElement transportValidation;
+
+    @FindBy(xpath = "//select[@formcontrolname='hostelRequired']/following-sibling::span")
+    private WebElement hostelValidation;
+
 
 
 
@@ -298,4 +336,5 @@ public class StudentDetails1stStep {
         enterMotherName("Sree");
         clickMakePayment();
     }
+    
 }

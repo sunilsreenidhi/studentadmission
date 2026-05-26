@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import com.onesports.base.BaseTest;
 
-import com.onesports.models.userData;
+import com.onesports.models.UserData;
 import com.onesports.pageObjects.PaymentGatewayPage;
 import com.onesports.pageObjects.RegistrationPage;
 import com.onesports.pageObjects.StudentAcademicDetails4thStep;
@@ -94,7 +94,7 @@ public class RegistrationTest extends BaseTest{
 
 
   @Test(groups ={"smoke"}, dataProvider = "registrationData",dataProviderClass=TestData.class)
-  public void registerValidNewUser(userData user) throws Throwable
+  public void registerValidNewUser(UserData user) throws Throwable
   { 
 
         getDriver().get(ConfigManager.getStudentApplyUrl());
@@ -106,7 +106,7 @@ public class RegistrationTest extends BaseTest{
         }
 
    //  @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
-      public void registerUserToFillApplication(userData user ) throws Throwable 
+      public void registerUserToFillApplication(UserData user ) throws Throwable 
 
   {   
         getDriver().get(ConfigManager.getStudentApplyUrl());
