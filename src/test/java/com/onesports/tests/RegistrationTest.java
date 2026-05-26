@@ -28,7 +28,7 @@ import com.onesports.resources.ConfigManager;
 import com.onesports.utilities.DbUtils;
 import com.onesports.utilities.PaymentUtils;
 import com.onesports.utilities.Utils;
-
+import com.sun.net.httpserver.Authenticator.Retry;
 import com.onesports.dataproviders.TestData;
 
 
@@ -78,7 +78,7 @@ public class RegistrationTest extends BaseTest{
         );
     }
 
-       @Test(priority = 6, groups = {"smoke"})
+@Test(priority = 6, groups = {"smoke"})
     public void verifySpecializationDependency() {
          getDriver().get(ConfigManager.getStudentApplyUrl());
         RegistrationPage register =
@@ -102,10 +102,8 @@ public class RegistrationTest extends BaseTest{
            reg.fillBasicDetails(user);
            reg.verifyMobileOTP(user.getMobile());
            reg.completeRegistration(user);
-      
-      StudentDetails1stStep detailsPage = new StudentDetails1stStep(getDriver());
-      Assert.assertTrue(detailsPage.isStepVisible("Applicant and Program Details"), "Failed to navigate to Student Details step");
-  }
+           Assert.assertTrue(reg.isUserProfileVisible());
+        }
 
    //  @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
       public void registerUserToFillApplication(userData user ) throws Throwable 
