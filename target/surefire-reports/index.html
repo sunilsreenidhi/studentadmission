@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -60,7 +60,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-RegistrationSuite" class="navigator-link ">
-                    <span>2 groups</span>
+                    <span>1 group</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">8 methods, 1 failed,   7 passed</span>
+                    <span class="method-stats">12 methods, 2 failed,   10 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,7 +103,12 @@
                     <div class="method-list-content failed suite-RegistrationSuite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.LoginTest" class="method navigator-link" hash-for-method="verifySessionCreatedAfterLogin">verifySessionCreatedAfterLogin</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.RegistrationTest" class="method navigator-link" hash-for-method="registerUserToFillApplication(com.onesports.models.UserData@105c6c9e)">registerUserToFillApplication(com.onesports.models.UserData@105c6c9e)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.RegistrationTest" class="method navigator-link" hash-for-method="registerValidNewUser(com.onesports.models.UserData@3dea1ecc)">registerValidNewUser(com.onesports.models.UserData@3dea1ecc)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-RegistrationSuite -->
@@ -127,6 +132,11 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.RegistrationTest" class="method navigator-link" hash-for-method="verifyCourseDropdownSelectable">verifyCourseDropdownSelectable</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.LoginTest" class="method navigator-link" hash-for-method="verifyLoginButtonIsClickable">verifyLoginButtonIsClickable</a> <!-- method navigator-link -->
                       </span>
                       <br/>
@@ -142,12 +152,22 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.RegistrationTest" class="method navigator-link" hash-for-method="verifyMandatoryFieldsVisible">verifyMandatoryFieldsVisible</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.LoginTest" class="method navigator-link" hash-for-method="verifyMandatoryFieldsVisible">verifyMandatoryFieldsVisible</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.LoginTest" class="method navigator-link" hash-for-method="verifyRedirectToLoginPageAfterSessionExpiry">verifyRedirectToLoginPageAfterSessionExpiry</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.RegistrationTest" class="method navigator-link" hash-for-method="verifyRegistrationPageLoads">verifyRegistrationPageLoads</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-RegistrationSuite" title="com.onesports.tests.RegistrationTest" class="method navigator-link" hash-for-method="verifySpecializationDependency">verifySpecializationDependency</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-RegistrationSuite -->
@@ -165,24 +185,24 @@
           <div class="suite-RegistrationSuite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.onesports.tests.LoginTest</span>
+              <span class="class-name">com.onesports.tests.RegistrationTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifySessionCreatedAfterLogin">
-                  </a> <!-- verifySessionCreatedAfterLogin -->
-                  <span class="method-name">verifySessionCreatedAfterLogin</span>
-                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=148.0.7778.179)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+                  <a name="registerUserToFillApplication(com.onesports.models.UserData@105c6c9e)">
+                  </a> <!-- registerUserToFillApplication(com.onesports.models.UserData@105c6c9e) -->
+                  <span class="method-name">registerUserToFillApplication</span>
+                  <span class="parameters">(com.onesports.models.UserData@105c6c9e)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=148.0.7778.217)
 Build info: version: &apos;4.27.0&apos;, revision: &apos;d6e718d134&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [d2d9890b59812caea2470f51dd577de7, isElementDisplayed {id=f.594D1FDCD0D4AD772D739265B052922C.d.9DEBCD49FA43A0E7F2861130D758EED9.e.8}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: /tmp/chrome-1779701109037}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62611}, goog:processID: 26792, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62611/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (d2d9890b59812caea2470f51dd577de7)] -&gt; css selector: input[formcontrolname=&apos;email&apos;]]
-Session ID: d2d9890b59812caea2470f51dd577de7
+Command: [440308ddcc2ab7bc9f62750df9686cc4, executeScript {args=[], script=return document.body.scrollHeight}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.217, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: /tmp/chrome-1781006593611}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57135}, goog:processID: 3988, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57135/devtoo..., se:cdpVersion: 148.0.7778.217, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 440308ddcc2ab7bc9f62750df9686cc4
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -190,24 +210,96 @@ Session ID: d2d9890b59812caea2470f51dd577de7
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:282)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy10.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at com.onesports.utilities.Utils.waitForElementToBeVisiblee(Utils.java:177)
-	at com.onesports.pageObjects.LoginPage.login(LoginPage.java:60)
-	at com.onesports.tests.LoginTest.verifySessionCreatedAfterLogin(LoginTest.java:90)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:476)
+	at com.onesports.utilities.Utils.scrollToBottomOfPageFully(Utils.java:143)
+	at com.onesports.pageObjects.StudentDetails1stStep.clickMakePayment(StudentDetails1stStep.java:314)
+	at com.onesports.pageObjects.StudentDetails1stStep.fillBasicDetails(StudentDetails1stStep.java:337)
+	at com.onesports.tests.RegistrationTest.registerUserToFillApplication(RegistrationTest.java:125)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 34 stack frames
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="registerValidNewUser(com.onesports.models.UserData@3dea1ecc)">
+                  </a> <!-- registerValidNewUser(com.onesports.models.UserData@3dea1ecc) -->
+                  <span class="method-name">registerValidNewUser</span>
+                  <span class="parameters">(com.onesports.models.UserData@3dea1ecc)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=148.0.7778.217)
+Build info: version: &apos;4.27.0&apos;, revision: &apos;d6e718d134&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [005064867f57c69559fd8d2d84878674, findElement {value=//span[contains(text(),&apos;Verify Phone&apos;)], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.217, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: /tmp/chrome-1781006610708}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60832}, goog:processID: 9348, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60832/devtoo..., se:cdpVersion: 148.0.7778.217, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 005064867f57c69559fd8d2d84878674
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.toString(Unknown Source)
+	at java.base/java.lang.String.valueOf(String.java:4461)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.toString(ExpectedConditions.java:669)
+	at java.base/java.lang.String.valueOf(String.java:4461)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:225)
+	at com.onesports.pageObjects.RegistrationPage.waitForClickable(RegistrationPage.java:132)
+	at com.onesports.pageObjects.RegistrationPage.clickVerifyMobile(RegistrationPage.java:185)
+	at com.onesports.pageObjects.RegistrationPage.verifyMobileOTP(RegistrationPage.java:278)
+	at com.onesports.tests.RegistrationTest.registerValidNewUser(RegistrationTest.java:103)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-RegistrationSuite-class-failed -->
+          <div class="suite-RegistrationSuite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.onesports.tests.RegistrationTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyCourseDropdownSelectable">
+                  </a> <!-- verifyCourseDropdownSelectable -->
+                  <span class="method-name">verifyCourseDropdownSelectable</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyMandatoryFieldsVisible">
+                  </a> <!-- verifyMandatoryFieldsVisible -->
+                  <span class="method-name">verifyMandatoryFieldsVisible</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyRegistrationPageLoads">
+                  </a> <!-- verifyRegistrationPageLoads -->
+                  <span class="method-name">verifyRegistrationPageLoads</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifySpecializationDependency">
+                  </a> <!-- verifySpecializationDependency -->
+                  <span class="method-name">verifySpecializationDependency</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-RegistrationSuite-class-passed -->
           <div class="suite-RegistrationSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -256,13 +348,6 @@ Session ID: d2d9890b59812caea2470f51dd577de7
                   <span class="method-name">verifyMandatoryFieldsVisible</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyRedirectToLoginPageAfterSessionExpiry">
-                  </a> <!-- verifyRedirectToLoginPageAfterSessionExpiry -->
-                  <span class="method-name">verifyRedirectToLoginPageAfterSessionExpiry</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-RegistrationSuite-class-passed -->
         </div> <!-- panel RegistrationSuite -->
@@ -278,11 +363,12 @@ Session ID: d2d9890b59812caea2470f51dd577de7
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.onesports.listeners.TestListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;LoginTest&quot; verbose=&quot;0&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;AllTests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.onesports.tests.LoginTest&quot;/&gt;
+      &lt;class name=&quot;com.onesports.tests.RegistrationTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- LoginTest --&gt;
+  &lt;/test&gt; &lt;!-- AllTests --&gt;
 &lt;/suite&gt; &lt;!-- RegistrationSuite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -294,7 +380,7 @@ Session ID: d2d9890b59812caea2470f51dd577de7
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">LoginTest (1 class)</span>
+                <span class="test-name">AllTests (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -305,22 +391,22 @@ Session ID: d2d9890b59812caea2470f51dd577de7
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">regression</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">verifyRedirectToLoginPageAfterSessionExpiry</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
-            <div class="test-group">
               <span class="test-group-name">smoke</span>
               <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">registerValidNewUser</span>
+                <br/>
+              </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">validLoginTestwithEmailAndPassword</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">validLoginTestwithMobileAndPassword</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifyCourseDropdownSelectable</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
@@ -340,7 +426,11 @@ Session ID: d2d9890b59812caea2470f51dd577de7
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">verifySessionCreatedAfterLogin</span>
+                <span class="method-in-group-name">verifyRegistrationPageLoads</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verifySpecializationDependency</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -360,44 +450,60 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(8);
+data.addRows(12);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyLoginPageLoadsAndLogoDisplayed')
-data.setCell(0, 2, 'com.onesports.tests.LoginTest')
-data.setCell(0, 3, 3071);
+data.setCell(0, 1, 'registerUserToFillApplication')
+data.setCell(0, 2, 'com.onesports.tests.RegistrationTest')
+data.setCell(0, 3, 15252);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'verifyLogout')
-data.setCell(1, 2, 'com.onesports.tests.LoginTest')
-data.setCell(1, 3, 2910);
+data.setCell(1, 1, 'registerValidNewUser')
+data.setCell(1, 2, 'com.onesports.tests.RegistrationTest')
+data.setCell(1, 3, 14870);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'validLoginTestwithEmailAndPassword')
+data.setCell(2, 1, 'verifyLogout')
 data.setCell(2, 2, 'com.onesports.tests.LoginTest')
-data.setCell(2, 3, 2549);
+data.setCell(2, 3, 2738);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'verifyRedirectToLoginPageAfterSessionExpiry')
+data.setCell(3, 1, 'verifyMandatoryFieldsVisible')
 data.setCell(3, 2, 'com.onesports.tests.LoginTest')
-data.setCell(3, 3, 2292);
+data.setCell(3, 3, 2397);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'verifyMandatoryFieldsVisible')
+data.setCell(4, 1, 'validLoginTestwithEmailAndPassword')
 data.setCell(4, 2, 'com.onesports.tests.LoginTest')
-data.setCell(4, 3, 2253);
+data.setCell(4, 3, 1886);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'validLoginTestwithMobileAndPassword')
 data.setCell(5, 2, 'com.onesports.tests.LoginTest')
-data.setCell(5, 3, 2066);
+data.setCell(5, 3, 1858);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'verifyLoginButtonIsClickable')
-data.setCell(6, 2, 'com.onesports.tests.LoginTest')
-data.setCell(6, 3, 1826);
+data.setCell(6, 1, 'verifyMandatoryFieldsVisible')
+data.setCell(6, 2, 'com.onesports.tests.RegistrationTest')
+data.setCell(6, 3, 1692);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'verifySessionCreatedAfterLogin')
+data.setCell(7, 1, 'verifyLoginPageLoadsAndLogoDisplayed')
 data.setCell(7, 2, 'com.onesports.tests.LoginTest')
-data.setCell(7, 3, 1775);
+data.setCell(7, 3, 1363);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'verifyLoginButtonIsClickable')
+data.setCell(8, 2, 'com.onesports.tests.LoginTest')
+data.setCell(8, 3, 1354);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'verifyCourseDropdownSelectable')
+data.setCell(9, 2, 'com.onesports.tests.RegistrationTest')
+data.setCell(9, 3, 1350);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'verifySpecializationDependency')
+data.setCell(10, 2, 'com.onesports.tests.RegistrationTest')
+data.setCell(10, 3, 1321);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'verifyRegistrationPageLoads')
+data.setCell(11, 2, 'com.onesports.tests.RegistrationTest')
+data.setCell(11, 3, 1109);
 window.suiteTableData['RegistrationSuite']= { tableData: data, tableDiv: 'times-div-RegistrationSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 18 seconds</span>
+              <span class="suite-total-time">Total running time: 47 seconds</span>
               <div id="times-div-RegistrationSuite">
               </div> <!-- times-div-RegistrationSuite -->
             </div> <!-- times-div -->
@@ -408,13 +514,6 @@ return data;
             <span class="header-content">Reporter output for RegistrationSuite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">verifySessionCreatedAfterLogin</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output">Saved screenshot for failed test: C:\Users\sunil\eclipse-workspace\studentadmissioin\reports\screenshots\verifySessionCreatedAfterLogin_1779701112330.png<br></span>
-                <span class="reporter-method-output"><a href='file://C:\Users\sunil\eclipse-workspace\studentadmissioin\reports\screenshots\verifySessionCreatedAfterLogin_1779701112330.png' target='_blank'>Open screenshot</a><br></span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-RegistrationSuite" class="panel">
@@ -437,98 +536,103 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validLoginTestwithEmailAndPassword</span>
-                <span class="method-start">1719 ms</span>
+                <span class="method-start">2016 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">4270 ms</span>
-              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">4592 ms</span>
+                <span class="method-start">3907 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validLoginTestwithMobileAndPassword</span>
-                <span class="method-start">5612 ms</span>
+                <span class="method-start">4777 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">7678 ms</span>
-              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">7948 ms</span>
+                <span class="method-start">6637 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">verifyLoginButtonIsClickable</span>
-                <span class="method-start">9039 ms</span>
+                <span class="method-start">7715 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">10865 ms</span>
-              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">11152 ms</span>
+                <span class="method-start">9069 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">verifyLoginPageLoadsAndLogoDisplayed</span>
-                <span class="method-start">12215 ms</span>
+                <span class="method-start">10011 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">15288 ms</span>
-              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">15560 ms</span>
+                <span class="method-start">11374 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">verifyLogout</span>
-                <span class="method-start">16593 ms</span>
+                <span class="method-start">12200 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">19503 ms</span>
-              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">19782 ms</span>
+                <span class="method-start">14942 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">verifyMandatoryFieldsVisible</span>
-                <span class="method-start">20840 ms</span>
+                <span class="method-start">16151 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">23093 ms</span>
-              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.onesports.tests.RegistrationTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">23402 ms</span>
+                <span class="method-start">19574 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">verifySessionCreatedAfterLogin</span>
-                <span class="method-start">24441 ms</span>
+                <span class="method-name">registerUserToFillApplication(com.onesports.models.UserData@105c6c9e)</span>
+                <span class="method-start">20870 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">26728 ms</span>
-              </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">27016 ms</span>
+                <span class="method-start">36661 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">verifyRedirectToLoginPageAfterSessionExpiry</span>
-                <span class="method-start">28024 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">registerValidNewUser(com.onesports.models.UserData@3dea1ecc)</span>
+                <span class="method-start">37656 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">30316 ms</span>
-              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">52548 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyRegistrationPageLoads</span>
+                <span class="method-start">53360 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">54470 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyMandatoryFieldsVisible</span>
+                <span class="method-start">55187 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">56879 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifyCourseDropdownSelectable</span>
+                <span class="method-start">57760 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">59111 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">verifySpecializationDependency</span>
+                <span class="method-start">59919 ms</span>
+              </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

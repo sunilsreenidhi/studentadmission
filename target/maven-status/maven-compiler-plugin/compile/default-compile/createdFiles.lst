@@ -5,6 +5,7 @@ com\onesports\pageObjects\StudentDeclaration6thStep.class
 com\onesports\pageObjects\PaymentGatewayPage.class
 com\onesports\pageObjects\LoginPage.class
 com\onesports\pageObjects\StudentAcademicDetails4thStep.class
+com\onesports\models\UserData.class
 com\onesports\utilities\PaymentUtils.class
 com\onesports\pageObjects\EnquiryPage.class
 com\onesports\listeners\TestListener.class
@@ -19,7 +20,6 @@ com\onesports\pageObjects\RegistrationPage.class
 com\onesports\pageObjects\StudentDashboard.class
 com\onesports\utilities\ExtentReportsTestNG.class
 com\onesports\listeners\Retry.class
-com\onesports\models\userData.class
 com\onesports\models\UPIPaymentData.class
 com\onesports\models\WalletPaymentData.class
 com\onesports\pageObjects\StudentDetails1stStep.class

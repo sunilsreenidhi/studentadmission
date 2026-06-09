@@ -36,8 +36,8 @@ public class UserData {
     private String motherEmail;
     private String motherMobile;
 
-        public UserData() {
-    }   
+    //     public UserData() {
+    // }   
 
     public UserData(String initials, String fullName, String surname, String email,
                     String mobile, String altCode, String altMobile,
