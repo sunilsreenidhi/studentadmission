@@ -13,7 +13,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.onesports.base.BaseTest;
-
 import com.onesports.models.UserData;
 import com.onesports.pageObjects.PaymentGatewayPage;
 import com.onesports.pageObjects.RegistrationPage;
