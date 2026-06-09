@@ -267,6 +267,7 @@ public class RegistrationPage  {
     enterFullName(user.getFullName());
     enterSurname(user.getSurname());
     enterEmail(user.getEmail());
+    Thread.sleep(1000); 
     enterMobile(user.getMobile());
     selectCity(user.getCity());
     selectCourse(user.getCourse());

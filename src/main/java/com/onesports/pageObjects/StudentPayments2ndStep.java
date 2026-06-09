@@ -158,4 +158,12 @@ public class StudentPayments2ndStep {
     public boolean isApplicantInfoVisible() {
         return waitForVisible(applicantInfoHeader).isDisplayed();
     }
+
+    public boolean clickContinueApplicationButtonIsVisible() {
+        try {
+            return waitForClickable(continueApplicationBtn).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

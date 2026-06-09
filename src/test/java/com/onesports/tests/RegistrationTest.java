@@ -105,7 +105,7 @@ public class RegistrationTest extends BaseTest{
            Assert.assertTrue(reg.isUserProfileVisible());
         }
 
-   //  @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
+     @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)
       public void registerUserToFillApplication(UserData user ) throws Throwable 
 
   {   
@@ -137,8 +137,6 @@ public class RegistrationTest extends BaseTest{
 
 // // refresh application page
 // getDriver().navigate().refresh();
-
-
           StudentPayments2ndStep paymentPage = new StudentPayments2ndStep(getDriver());
         paymentPage.clickProceedToPayment();
 
@@ -165,10 +163,21 @@ public class RegistrationTest extends BaseTest{
 
          StudentAddress3rdStep addressPage = new StudentAddress3rdStep(getDriver());
          Utils.waitForElementVisiblility(getDriver(), addressPage.getAddressHeaderElement());
+        
          addressPage.presentdistrictSelect("Hyderabad");
+          System.out.println("entered district");
+
          addressPage.enterPresentAddressLine1("Banjara Hills");
+                   System.out.println("entered present address line 1");
+
          addressPage.enterPresentPinCode("500034");
-         Utils.scrollToBottomOfPageFully(getDriver());
+                   System.out.println("entered present pin code");
+
+         Utils.scrollToBottomOfPage(getDriver());
+                   System.out.println("scrolled to bottom of page");
+
+        //         addressPage.clickPermanentCheckbox();
+  
          addressPage.selectPermanentState("Goa");
          addressPage.selectPermanentDistrict("North Goa");
          addressPage.selectPermanentCity("Panaji");

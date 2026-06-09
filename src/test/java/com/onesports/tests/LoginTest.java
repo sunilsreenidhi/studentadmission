@@ -105,7 +105,7 @@ public class LoginTest extends BaseTest {
     }
    
 
-  //  @Test(groups = {"regression"}, priority = 2)
+    @Test(groups = {"regression"}, priority = 2)
     public void verifyRedirectToLoginPageAfterSessionExpiry() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());
         LoginPage login = new LoginPage(getDriver());
@@ -120,12 +120,12 @@ public class LoginTest extends BaseTest {
          getDriver().navigate().refresh();
          Assert.assertTrue(login.isEmailFieldVisible(), "Session did not expire - Still logged in after refresh");
     }
-  // @Test
+   @Test
     public void loginToFillApplication() throws Throwable {
         getDriver().get("https://suadm-stg.suh.edu.in/student/apply-now");
         LoginPage login = new LoginPage(getDriver());
         login.loginTab();
-        login.login("9547720146", "Sree@123");
+        login.login("9421165455", "Sree@123");
      //   Assert.assertTrue(login.isUserProfileVisible(), "Login failed - Profile icon not visible");
         
         StudentDashboard dashboard = new StudentDashboard(getDriver());
@@ -138,12 +138,12 @@ public class LoginTest extends BaseTest {
       //     detailsPage.fillBasicDetails();   
       //    Assert.assertTrue(detailsPage.isStepVisible("Payment Tab"), "Failed to navigate to Payment page");
            
-          StudentPayments2ndStep paymentPage = new StudentPayments2ndStep(getDriver());
+       //   StudentPayments2ndStep paymentPage = new StudentPayments2ndStep(getDriver());
       //   paymentPage.clickProceedToPayment();
 
       //    PaymentGatewayPage paymentGateway = new PaymentGatewayPage(getDriver());
       //     paymentGateway.completeNetBankingPayment();
-         Utils.scrollToBottomOfPageFully(getDriver());
+     //    Utils.scrollToBottomOfPageFully(getDriver());
       //    String paymentSuccessMessage =getDriver().findElement(By.xpath("//h4[normalize-space()='Payment Successful!'] ")).getText();
       //    Utils.waitForElementToBeVisible(getDriver(), By.xpath("//h4[normalize-space()='Payment Successful!']"));
       //    Assert.assertEquals(paymentSuccessMessage, "Payment Successful!");

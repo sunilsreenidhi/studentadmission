@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.mongodb.internal.connection.tlschannel.util.Util;
-import com.onesports.models.userData;
+import com.onesports.models.UserData;
 import com.onesports.utilities.DbUtils;
 import com.onesports.utilities.Utils;
 
@@ -221,7 +221,7 @@ public void verifyMobileOTP(String mobile)
         waitForClickable(submitButton).click();
     }
 
-    public void fillEnquiryDetails(userData user) throws InterruptedException {
+    public void fillEnquiryDetails(UserData user) throws InterruptedException {
         selectTitle(user.getInitials());
         enterName(user.getFullName());
         enterSurname(user.getSurname());

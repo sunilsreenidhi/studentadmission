@@ -22,6 +22,8 @@ public class StudentAddress3rdStep {
         PageFactory.initElements(driver, this);
     }
 
+    private By permanentAddressCheckbox = By.cssSelector("input[formcontrolname='permanentSameAsPresent']");
+
      @FindBy(xpath = "//span[normalize-space()='Applicant and Program Details']")
     private WebElement applicantAndProgramDetailsStep;
 
@@ -70,14 +72,12 @@ public class StudentAddress3rdStep {
     @FindBy(css = "select[formcontrolname='permanentCountry']")
     private WebElement permanentCountrySelect;
 
-    @FindBy(css = "select[formcontrolname='permanentState']")
-    private WebElement permanentStateSelect;
+    private By permanentStateSelect = By.cssSelector("select[formcontrolname='permanentState']");
 
     @FindBy(css = "select[formcontrolname='permanentDistrict']")
-    private WebElement permanentDistrictSelect;
+    private By permanentDistrictSelect = By.cssSelector("select[formcontrolname='permanentDistrict']");
 
-    @FindBy(css = "select[formcontrolname='permanentCity']")
-    private WebElement permanentCitySelect;
+     private By permanentCitySelect = By.cssSelector("select[formcontrolname='permanentCity']");
 
     @FindBy(css = "input[formcontrolname='permanentAddressLine1']")
     private WebElement permanentAddressLine1Input;
@@ -158,20 +158,23 @@ public class StudentAddress3rdStep {
     }
 
     public void enterPresentPinCode(String pinCode) {
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(presentPinCodeInput)));
         type(presentPinCodeInput, pinCode);
     }
 
     public void selectPermanentState(String state) throws InterruptedException {
-        Thread.sleep(500); // Wait for state options to load based on selected country
-        selectByVisibleText(permanentStateSelect, state);
+         wait.until(ExpectedConditions.elementToBeClickable(permanentStateSelect));
+        new Select(driver.findElement(permanentStateSelect)).selectByVisibleText(state);
     }
 
-     public void selectPermanentDistrict(String district) {
-        selectByVisibleText(permanentDistrictSelect, district);
+     public void    selectPermanentDistrict(String district) {
+        wait.until(ExpectedConditions.elementToBeClickable(permanentDistrictSelect));
+        new Select(driver.findElement(permanentDistrictSelect)).selectByVisibleText(district);
     }
 
     public void selectPermanentCity(String city) {
-        selectByVisibleText(permanentCitySelect, city);
+         wait.until(ExpectedConditions.elementToBeClickable(permanentCitySelect));
+        new Select(driver.findElement(permanentCitySelect)).selectByVisibleText(city);
     }
 
      public void enterPermanentAddressLine1(String addressLine1) {
@@ -199,7 +202,10 @@ public class StudentAddress3rdStep {
         By.xpath("//span[normalize-space()='" + stepName + "']"))).isDisplayed();
 }
 
+public void clickPermanentCheckbox() {
+    wait.until(ExpectedConditions.elementToBeClickable(permanentAddressCheckbox)).click();
 
+}
 
     
 }

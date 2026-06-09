@@ -59,14 +59,15 @@ options.addArguments("--user-data-dir=/tmp/chrome-" + System.currentTimeMillis()
         }
 
         driver.set(webDriver);
-        getDriver().manage().window().setSize(new Dimension(1920,1080));
+     //   getDriver().manage().window().setSize(new Dimension(1920,1080));
+     getDriver().manage().window().maximize();
            getDriver().manage().timeouts()
                 .implicitlyWait(Duration.ofSeconds(10));
       //  getDriver().manage().window().maximize();
     }
     
 
-   @AfterMethod
+ //  @AfterMethod
     public void tearDown() {
         if (getDriver() != null) {
             getDriver().quit();

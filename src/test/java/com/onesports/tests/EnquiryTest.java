@@ -13,13 +13,13 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.onesports.base.BaseTest;
 import com.onesports.dataproviders.TestData;
-import com.onesports.models.userData;
+import com.onesports.models.UserData;
 import com.onesports.pageObjects.EnquiryPage;
 
 public class EnquiryTest extends BaseTest {
 
     @Test(dataProvider = "enquiryData", dataProviderClass = TestData.class)
-    public void submitEnquiryTest(userData user) throws InterruptedException {
+    public void submitEnquiryTest(UserData user) throws InterruptedException {
         getDriver().get("https://suadm-stg.suh.edu.in/enquiry");
 
         EnquiryPage enquiryPage = new EnquiryPage(getDriver());

@@ -44,8 +44,10 @@ public class StudentDashboard {
     }
     }
 private WebElement waitForClickable(WebElement element) {
-        return wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
+    return wait.until(
+            ExpectedConditions.refreshed(
+                    ExpectedConditions.elementToBeClickable(element)));
+}
 
     public void clickContinueApplication() {
         waitForClickable(continueApplicationBtn).click();
