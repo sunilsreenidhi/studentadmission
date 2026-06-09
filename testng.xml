@@ -4,9 +4,10 @@
   <listeners>
     <listener class-name="com.onesports.listeners.TestListener"/>
   </listeners>
-  <test name="LoginTest">
+  <test name="AllTests">
     <classes>
       <class name="com.onesports.tests.LoginTest"/>
+        <class name="com.onesports.tests.RegistrationTest"/>
     </classes>
   </test>
 </suite>

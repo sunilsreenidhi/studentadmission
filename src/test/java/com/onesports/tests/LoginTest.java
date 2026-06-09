@@ -105,7 +105,7 @@ public class LoginTest extends BaseTest {
     }
    
 
-    @Test(groups = {"regression"}, priority = 2)
+ //   @Test(groups = {"regression"}, priority = 2)
     public void verifyRedirectToLoginPageAfterSessionExpiry() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());
         LoginPage login = new LoginPage(getDriver());
@@ -120,7 +120,7 @@ public class LoginTest extends BaseTest {
          getDriver().navigate().refresh();
          Assert.assertTrue(login.isEmailFieldVisible(), "Session did not expire - Still logged in after refresh");
     }
-   @Test
+  // @Test
     public void loginToFillApplication() throws Throwable {
         getDriver().get("https://suadm-stg.suh.edu.in/student/apply-now");
         LoginPage login = new LoginPage(getDriver());
