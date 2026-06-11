@@ -7,6 +7,7 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -101,7 +102,10 @@ public class RegistrationTest extends BaseTest{
            reg.fillBasicDetails(user);
            reg.verifyMobileOTP(user.getMobile());
            reg.completeRegistration(user);
-           Assert.assertTrue(reg.isUserProfileVisible());
+         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.urlContains("dashboard"));
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("dashboard"), "Registration failed - Not redirected to dashboard");
+     
         }
 
      @Test(dataProvider = "registrationData",dataProviderClass=TestData.class)

@@ -3,6 +3,7 @@ package com.onesports.pageObjects;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -251,6 +252,11 @@ public class RegistrationPage  {
     // Agreement & Submit
     public void checkAgree() {
         WebElement checkbox = waitForClickable(agreeCheckbox);
+        ((JavascriptExecutor)driver)
+        .executeScript(
+                "arguments[0].scrollIntoView({block:'center'});",
+                checkbox);
+
         if (!checkbox.isSelected()) {
             checkbox.click();
         }
@@ -267,7 +273,7 @@ public class RegistrationPage  {
     enterFullName(user.getFullName());
     enterSurname(user.getSurname());
     enterEmail(user.getEmail());
-    Thread.sleep(1000); 
+    Thread.sleep(2000); 
     enterMobile(user.getMobile());
     selectCity(user.getCity());
     selectCourse(user.getCourse());
@@ -276,7 +282,7 @@ public class RegistrationPage  {
     public void verifyMobileOTP(String mobile)
     {
         clickVerifyMobile();
-        String otp = DbUtils.getLatestOtp(mobile);
+        String otp = DbUtils.waitForLatestOtp(mobile);
         enterOtp(otp);
         clickOtpVerify();
     }

@@ -2,12 +2,15 @@ package com.onesports.tests;
 
 import static com.onesports.base.BaseTest.driver;
 
+import java.time.Duration;
 import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,6 +32,7 @@ import com.onesports.resources.ConfigManager;
 import com.onesports.utilities.Utils;
 
 public class LoginTest extends BaseTest {
+
 
    @Test(groups = {"smoke"})
    public void verifyLoginPageLoadsAndLogoDisplayed() throws Throwable {
@@ -53,7 +57,7 @@ public class LoginTest extends BaseTest {
         LoginPage login = new LoginPage(getDriver());
         login.loginTab();
         login.login(ConfigManager.getStudentMobile(), ConfigManager.getStudentPassword());
-        Assert.assertTrue(login.LogoisDisplayed());
+        Assert.assertTrue(login.LogoisDisplayed(), "Login failed - Dashboard breadcrumb not visible");   
    }
 
       @Test(groups = {"smoke"})
@@ -62,9 +66,11 @@ public class LoginTest extends BaseTest {
         LoginPage login = new LoginPage(getDriver());
         login.loginTab();
         login.login(ConfigManager.getStudentEmail(), ConfigManager.getStudentPassword());
-         Assert.assertTrue(login.LogoisDisplayed());
-   }
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.urlContains("dashboard"));
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("dashboard"), "Login failed - Not redirected to dashboard");
+     
+ }
    @Test(groups = {"smoke"})
    public void verifyLogout() throws Throwable {
         getDriver().get(ConfigManager.getStudentApplyUrl());

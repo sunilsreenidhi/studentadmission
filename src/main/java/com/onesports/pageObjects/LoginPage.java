@@ -25,6 +25,7 @@ public class LoginPage {
     @FindBy(css = "img[alt*='SU-MYADMIT360 Logo']")
     private WebElement loginPageLogoElement;
     
+    
     @FindBy(xpath  ="//button[normalize-space()='Login']")
     private WebElement loginTab;
 
