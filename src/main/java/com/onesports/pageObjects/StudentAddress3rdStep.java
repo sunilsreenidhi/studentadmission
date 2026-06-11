@@ -79,6 +79,7 @@ public class StudentAddress3rdStep {
 
      private By permanentCitySelect = By.cssSelector("select[formcontrolname='permanentCity']");
 
+     
     @FindBy(css = "input[formcontrolname='permanentAddressLine1']")
     private WebElement permanentAddressLine1Input;
 
@@ -178,14 +179,17 @@ public class StudentAddress3rdStep {
     }
 
      public void enterPermanentAddressLine1(String addressLine1) {
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(permanentAddressLine1Input)));
         type(permanentAddressLine1Input, addressLine1);
     }
 
     public void enterPermanentAddressLine2(String addressLine2) {
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(permanentAddressLine2Input)));
         type(permanentAddressLine2Input, addressLine2);
     }
 
     public void enterPermanentPinCode(String pinCode) {
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(permanentPinCodeInput)));
         type(permanentPinCodeInput, pinCode);
     }
 
