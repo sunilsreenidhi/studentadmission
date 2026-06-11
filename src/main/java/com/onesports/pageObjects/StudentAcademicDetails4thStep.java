@@ -2,6 +2,7 @@ package com.onesports.pageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -129,8 +130,8 @@ public class StudentAcademicDetails4thStep {
     @FindBy(xpath = "//button[normalize-space()='Previous']")
     private WebElement previousButton;
 
-    @FindBy(xpath = "//button[contains(normalize-space(.), 'Save & Continue')]")
-    private WebElement saveContinueButton;
+    private By saveAndContinueButton = By.xpath("//button[contains(normalize-space(.), 'Save & Continue')]");
+
 
     private WebElement waitForVisible(WebElement element) {
         return wait.until(ExpectedConditions.visibilityOf(element));
@@ -285,6 +286,6 @@ public class StudentAcademicDetails4thStep {
     }
 
     public void clickSaveAndContinue() {
-        waitForVisible(saveContinueButton).click();
+        wait.until(ExpectedConditions.elementToBeClickable(saveAndContinueButton)).click();
     }
 }

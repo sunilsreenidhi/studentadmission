@@ -2,6 +2,7 @@ package com.onesports.pageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,14 +30,13 @@ public class StudentDeclaration6thStep {
     @FindBy(css = "input[formcontrolname='declarationDate']")
     private WebElement declarationDateField;
 
-    @FindBy(css = "input[formcontrolname='isAgreed']")
-    private WebElement declarationCheckbox;
+
+    By declarationCheckboxBy = By.cssSelector("input[formcontrolname='isAgreed']");
 
     @FindBy(xpath = "//button[normalize-space()='Previous']")
     private WebElement previousButton;
 
-    @FindBy(xpath = "//button[normalize-space()='Confirm & Submit Application']")
-    private WebElement confirmSubmitButton;
+    By confirmSubmitButtonBy = By.xpath("//button[normalize-space()='Confirm & Submit Application']");
 
     private WebElement waitForVisible(WebElement element) {
         return wait.until(ExpectedConditions.visibilityOf(element));
@@ -65,7 +65,7 @@ public class StudentDeclaration6thStep {
     }
 
     public void setDeclarationAgreement(boolean agreed) {
-        WebElement el = waitForVisible(declarationCheckbox);
+        WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated(declarationCheckboxBy));
         if (el.isSelected() != agreed) {
             el.click();
         }
@@ -76,7 +76,7 @@ public class StudentDeclaration6thStep {
     }
 
     public void clickConfirmAndSubmit() {
-        waitForClickableAndClick(confirmSubmitButton);
+        wait.until(ExpectedConditions.elementToBeClickable(confirmSubmitButtonBy)).click();
     }
 
     public void confirmAndSubmitApplication(String applicantName, String parentName, String declarationDate) {

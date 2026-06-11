@@ -65,9 +65,8 @@ public class RegistrationPage  {
     @FindBy(css = "input[formcontrolname='mobile']")
     private WebElement mobileInput;
 
-    @FindBy (xpath ="//button[contains(@class,'verify-phone-link')]")
-    private WebElement verifyMobileBtn;
-
+    By verifyMobileBtn = By.xpath("//button[contains(@class,'verify-phone-link')]");
+   
     @FindBy(css = "input[placeholder='Enter 6-digit OTP']")
     private WebElement otpInput;
 
@@ -136,6 +135,10 @@ public class RegistrationPage  {
     }
 
     private WebElement waitForClickable(WebElement element) {
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+     private WebElement waitForClickable(By element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -297,6 +300,7 @@ System.out.println(
 
     public void verifyMobileOTP(String mobile) throws InterruptedException
     {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(verifyMobileBtn));
         clickVerifyMobile();
         String otp = DbUtils.waitForLatestOtp(mobile);
         enterOtp(otp);
