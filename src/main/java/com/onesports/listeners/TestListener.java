@@ -41,7 +41,6 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ExtentTest test = extentTest.get();
-
     test.fail(result.getThrowable());
 
     Object testInstance = result.getInstance();

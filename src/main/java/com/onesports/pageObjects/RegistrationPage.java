@@ -2,6 +2,8 @@ package com.onesports.pageObjects;
 
 import java.time.Duration;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.onesports.base.BaseTest;
 import com.onesports.models.UserData;
 import com.onesports.utilities.DbUtils;
 import com.onesports.utilities.Utils;
@@ -22,6 +25,9 @@ public class RegistrationPage  {
 
     private WebDriver driver;
     private WebDriverWait wait;
+
+    protected static final Logger logger =
+            LogManager.getLogger(RegistrationPage.class);
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
@@ -295,6 +301,7 @@ System.out.println(
         String otp = DbUtils.waitForLatestOtp(mobile);
         enterOtp(otp);
         clickOtpVerify();
+        logger.info("entered otp and clicked verify button");
     }
 
     public void completeRegistration(UserData user) throws InterruptedException {

@@ -323,8 +323,14 @@ public class StudentDetails1stStep {
     public void fillBasicDetails() throws InterruptedException
     {
 
-         uploadPhoto("C:/Users/sunil/Downloads/sunilpic.jpg");
-         uploadAadhar("C:/Users/sunil/Downloads/adhar.png");
+          String photo = System.getProperty("user.dir")
+        + "/src/test/java/com/onesports/dataproviders/sunilpic.jpg";
+
+          String adhar = System.getProperty("user.dir")
+        + "/src/test/java/com/onesports/dataproviders/adhar.png";
+
+         uploadPhoto(photo);
+         uploadAadhar(adhar);
          enterDateOfBirth("01/01/2000");
          selectGender("Male");
          enterAadhaarNumber("123456789012");

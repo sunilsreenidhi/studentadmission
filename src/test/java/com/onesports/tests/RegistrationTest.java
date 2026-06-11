@@ -196,8 +196,16 @@ public class RegistrationTest extends BaseTest{
 
          StudentUploadFiles5thStep uploadFilesPage = new StudentUploadFiles5thStep(getDriver());
          Utils.scrollToTop(getDriver());
-         uploadFilesPage.uploadSignature("C:/Users/sunil/Downloads/sign.jpeg");
-         uploadFilesPage.uploadTenthCertificate("C:/Users/sunil/Downloads/tenthcertificate.png");
+
+          String sign = System.getProperty("user.dir")
+        + "/src/test/java/com/onesports/dataproviders/sunilpic.jpg";
+
+          String tenthcert = System.getProperty("user.dir")
+        + "/src/test/java/com/onesports/dataproviders/tenthcert.jpg";
+
+
+         uploadFilesPage.uploadSignature(sign);
+         uploadFilesPage.uploadTenthCertificate(tenthcert);
          Utils.scrollToBottomOfPageFully(getDriver());
          uploadFilesPage.clickSaveAndContinue();
 

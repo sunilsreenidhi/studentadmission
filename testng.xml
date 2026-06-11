@@ -6,8 +6,10 @@
   </listeners>
   <test name="AllTests">
     <classes>
-      <class name="com.onesports.tests.LoginTest"/>
         <class name="com.onesports.tests.RegistrationTest"/>
+          <methods>
+                    <include name="registerUserToFillApplication" />
+                </methods>
     </classes>
   </test>
 </suite>

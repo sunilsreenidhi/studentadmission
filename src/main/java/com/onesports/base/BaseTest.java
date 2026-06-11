@@ -2,6 +2,8 @@ package com.onesports.base;
 
 import java.time.Duration;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,6 +21,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Listeners(TestListener.class)
 public class BaseTest {
+
+       protected static final Logger logger =
+            LogManager.getLogger(BaseTest.class);
 
     // Thread-safe WebDriver per test thread
     public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
