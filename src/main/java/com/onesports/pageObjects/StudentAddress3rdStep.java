@@ -86,9 +86,9 @@ public class StudentAddress3rdStep {
  
     @FindBy(xpath = "//button[normalize-space()='Previous']")
     private WebElement previousButton;
+    
+    private By saveAndContinueButton = By.xpath("//button[contains(normalize-space(.), 'Save & Continue')]");
 
-    @FindBy(xpath = "//button[contains(normalize-space(.), 'Save & Continue')]")
-    private WebElement saveAndContinueButton;
 
     private WebElement waitForVisible(WebElement element) {
         return wait.until(ExpectedConditions.visibilityOf(element));
@@ -199,7 +199,7 @@ public class StudentAddress3rdStep {
     }
 
     public void clickSaveAndContinue() {
-        click(saveAndContinueButton);
+        wait.until(ExpectedConditions.elementToBeClickable(saveAndContinueButton)).click();
     }
 
     public boolean isStepVisible(String stepName) {
