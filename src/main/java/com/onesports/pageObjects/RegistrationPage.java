@@ -59,7 +59,7 @@ public class RegistrationPage  {
     @FindBy(css = "input[formcontrolname='mobile']")
     private WebElement mobileInput;
 
-    @FindBy(xpath = "//span[contains(text(),'Verify Phone')]")
+    @FindBy (xpath ="//button[contains(@class,'verify-phone-link')]")
     private WebElement verifyMobileBtn;
 
     @FindBy(css = "input[placeholder='Enter 6-digit OTP']")
@@ -182,7 +182,7 @@ public class RegistrationPage  {
         type(mobileInput, mobile);
     }
 
-    public void clickVerifyMobile() {
+    public void clickVerifyMobile() throws InterruptedException {
         waitForClickable(verifyMobileBtn).click();
    // verifyMobileBtn.click();
 }
@@ -250,16 +250,26 @@ public class RegistrationPage  {
     }
 
     // Agreement & Submit
-    public void checkAgree() {
+    public void checkAgree() throws InterruptedException {
+
+        System.out.println(
+        "Checkbox displayed = "
+                + agreeCheckbox.isDisplayed());
+
+System.out.println(
+        "Checkbox enabled = "
+                + agreeCheckbox.isEnabled());
+
         WebElement checkbox = waitForClickable(agreeCheckbox);
         ((JavascriptExecutor)driver)
         .executeScript(
                 "arguments[0].scrollIntoView({block:'center'});",
                 checkbox);
-
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-        }
+        Thread.sleep(1000);        
+        ((JavascriptExecutor) driver)
+        .executeScript("arguments[0].click();",
+                agreeCheckbox);
+        
     }
 
     public void submitApplication() {
@@ -279,7 +289,7 @@ public class RegistrationPage  {
     selectCourse(user.getCourse());
     }
 
-    public void verifyMobileOTP(String mobile)
+    public void verifyMobileOTP(String mobile) throws InterruptedException
     {
         clickVerifyMobile();
         String otp = DbUtils.waitForLatestOtp(mobile);
