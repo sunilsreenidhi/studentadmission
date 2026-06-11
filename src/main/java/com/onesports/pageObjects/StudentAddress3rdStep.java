@@ -57,14 +57,11 @@ public class StudentAddress3rdStep {
     @FindBy(css = "select[formcontrolname='presentCity']")
     private WebElement presentCitySelect;
 
-    @FindBy(css = "input[formcontrolname='presentAddressLine1']")
-    private WebElement presentAddressLine1Input;
 
-    @FindBy(css = "input[formcontrolname='presentAddressLine2']")
-    private WebElement presentAddressLine2Input;
+    By presentAddressLine1InputBy = By.cssSelector("input[formcontrolname='presentAddressLine1']");
 
-    @FindBy(css = "input[formcontrolname='presentPinCode']")
-    private WebElement presentPinCodeInput;
+    By presentAddressLine2InputBy = By.cssSelector("input[formcontrolname='presentAddressLine2']");
+     By presentPinCodeInputBy = By.cssSelector("input[formcontrolname='presentPinCode']");
 
     @FindBy(css = "input[formcontrolname='permanentSameAsPresent']")
     private WebElement permanentSameAsPresentCheckbox;
@@ -146,16 +143,16 @@ public class StudentAddress3rdStep {
     }
 
     public void enterPresentAddressLine1(String addressLine1) {
-        type(presentAddressLine1Input, addressLine1);
+       wait.until(ExpectedConditions.elementToBeClickable(presentAddressLine1InputBy)).sendKeys(addressLine1);
     }
 
     public void enterPresentAddressLine2(String addressLine2) {
-        type(presentAddressLine2Input, addressLine2);
+        wait.until(ExpectedConditions.elementToBeClickable(presentAddressLine2InputBy)).sendKeys(addressLine2);
     }
 
     public void enterPresentPinCode(String pinCode) {
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(presentPinCodeInput)));
-        type(presentPinCodeInput, pinCode);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(presentPinCodeInputBy)));
+        wait.until(ExpectedConditions.elementToBeClickable(presentPinCodeInputBy)).sendKeys(pinCode);
     }
 
     public void selectPermanentState(String state) throws InterruptedException {
