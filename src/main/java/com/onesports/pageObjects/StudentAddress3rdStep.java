@@ -79,16 +79,11 @@ public class StudentAddress3rdStep {
 
      private By permanentCitySelect = By.cssSelector("select[formcontrolname='permanentCity']");
 
-     
-    @FindBy(css = "input[formcontrolname='permanentAddressLine1']")
-    private WebElement permanentAddressLine1Input;
-
-    @FindBy(css = "input[formcontrolname='permanentAddressLine2']")
-    private WebElement permanentAddressLine2Input;
-
-    @FindBy(css = "input[formcontrolname='permanentPinCode']")
-    private WebElement permanentPinCodeInput;
-
+    private By permanentAddressLine1Input = By.cssSelector("input[formcontrolname='permanentAddressLine1']");
+ 
+    private By permanentAddressLine2Input = By.cssSelector("input[formcontrolname='permanentAddressLine2']");
+    private By permanentPinCodeInput = By.cssSelector("input[formcontrolname='permanentPinCode']");
+ 
     @FindBy(xpath = "//button[normalize-space()='Previous']")
     private WebElement previousButton;
 
@@ -179,18 +174,24 @@ public class StudentAddress3rdStep {
     }
 
      public void enterPermanentAddressLine1(String addressLine1) {
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(permanentAddressLine1Input)));
-        type(permanentAddressLine1Input, addressLine1);
+      WebElement element = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                    permanentAddressLine1Input));
+                    element.sendKeys(addressLine1);
     }
 
     public void enterPermanentAddressLine2(String addressLine2) {
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(permanentAddressLine2Input)));
-        type(permanentAddressLine2Input, addressLine2);
+         WebElement element = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                    permanentAddressLine2Input));
+                    element.sendKeys(addressLine2);
     }
 
     public void enterPermanentPinCode(String pinCode) {
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(permanentPinCodeInput)));
-        type(permanentPinCodeInput, pinCode);
+          WebElement element = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                    permanentPinCodeInput));
+                    element.sendKeys(pinCode);
     }
 
     public void clickPrevious() {
