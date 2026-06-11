@@ -199,7 +199,10 @@ public class StudentAddress3rdStep {
     }
 
     public void clickSaveAndContinue() {
-        wait.until(ExpectedConditions.elementToBeClickable(saveAndContinueButton)).click();
+          wait.until(ExpectedConditions.refreshed(
+            ExpectedConditions.elementToBeClickable(
+                    saveAndContinueButton)))
+        .click();
     }
 
     public boolean isStepVisible(String stepName) {
