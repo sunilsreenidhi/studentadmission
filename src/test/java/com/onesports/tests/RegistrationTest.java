@@ -184,6 +184,9 @@ public class RegistrationTest extends BaseTest{
          addressPage.selectPermanentState("Goa");
          addressPage.selectPermanentDistrict("North Goa");
          addressPage.selectPermanentCity("Panaji");
+         logger.info("Selected permanent city details");
+         
+         System.out.println("selected permanent city ");
          addressPage.enterPermanentAddressLine1("Near Panaji Church");
          addressPage.enterPermanentPinCode("403004");
          addressPage.clickSaveAndContinue();

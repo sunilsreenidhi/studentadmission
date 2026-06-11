@@ -2,6 +2,7 @@ package com.onesports.pageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -77,10 +78,7 @@ public class StudentPayments2ndStep {
     @FindBy(xpath = "//button[.//text()[contains(.,'Proceed to Secure Payment')]]")
     private WebElement proceedToPaymentBtn;
     
-    //Continue Application Button after Payment Success
-    @FindBy(xpath = "//button[.//span[contains(., 'Continue Application')]]")
-    private WebElement continueApplicationBtn;
-
+    private By continueApplicationBtn   = By.xpath("//button[.//span[contains(., 'Continue Application')]]");
 
     // -------- Private helpers --------
 
@@ -136,8 +134,7 @@ public class StudentPayments2ndStep {
     }
 
     public void clickContinueApplication() {
-         
-          waitForClickable(continueApplicationBtn);
+          wait.until(ExpectedConditions.elementToBeClickable(continueApplicationBtn));
           try {
         Thread.sleep(1000);
     } catch (InterruptedException e) {
@@ -161,7 +158,7 @@ public class StudentPayments2ndStep {
 
     public boolean clickContinueApplicationButtonIsVisible() {
         try {
-            return waitForClickable(continueApplicationBtn).isDisplayed();
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(continueApplicationBtn)).isDisplayed();
         } catch (Exception e) {
             return false;
         }
