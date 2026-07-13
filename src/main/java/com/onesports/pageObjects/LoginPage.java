@@ -58,6 +58,7 @@ public class LoginPage {
      }
 
     public void login(String email, String password) {
+        loginTab.click();
            wait.until(ExpectedConditions.refreshed(
             ExpectedConditions.visibilityOf(emailField)));  // stale element handling
         emailField.sendKeys(email);

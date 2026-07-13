@@ -140,6 +140,31 @@ public static String waitForLatestOtp(String phoneNumber) {
     }
 }
 
+public static void resetCompletedSteps(int applicationId) {
+
+    String sql = """
+        UPDATE suadm.applications
+        SET entrance_exams = JSON_SET(
+            entrance_exams,
+            '$.completedSteps',
+            JSON_ARRAY(false,false,false,false,false,false)
+        )
+        WHERE id = ?
+        """;
+
+    try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
+         PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setInt(1, applicationId);
+
+        int rowsAffected = ps.executeUpdate();
+        System.out.println("Rows updated: " + rowsAffected);
+
+    } catch (SQLException e) {
+        throw new RuntimeException("Error resetting completedSteps for applicationId: " + applicationId, e);
+    }
+}
+
 }
 
 

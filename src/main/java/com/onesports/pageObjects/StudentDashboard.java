@@ -2,11 +2,13 @@ package com.onesports.pageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,9 +28,7 @@ public class StudentDashboard {
     @FindBy(xpath = "//a[contains(text(), 'Start Application')]")
     private WebElement startApplicationBtn;
 
-    @FindBy(xpath = "//a[normalize-space()='Continue Application']")
-    private WebElement continueApplicationBtn;
-
+    private By continueApplicationBtn = By.xpath("//a[normalize-space()='Continue Application']");
 
     public void clickStartApplication() {
         
@@ -49,8 +49,14 @@ private WebElement waitForClickable(WebElement element) {
                     ExpectedConditions.elementToBeClickable(element)));
 }
 
-    public void clickContinueApplication() {
-        waitForClickable(continueApplicationBtn).click();
+    public void clickContinueApplication(){
+     wait.until(ExpectedConditions.visibilityOfElementLocated(
+            continueApplicationBtn));
 
+    wait.until(ExpectedConditions.elementToBeClickable(
+            continueApplicationBtn));
+
+    driver.findElement(continueApplicationBtn)
+            .click();
     }
 }

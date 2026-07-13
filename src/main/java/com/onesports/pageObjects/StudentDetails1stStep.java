@@ -3,6 +3,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,12 +31,8 @@ public class StudentDetails1stStep {
      @FindBy(xpath = "//span[normalize-space()='Applicant and Program Details']")
     private WebElement applicantAndProgramDetailsStep;
 
-
-    @FindBy(css = "select[formcontrolname='course']")
-    private WebElement courseSelect;
-
-    @FindBy(css = "select[formcontrolname='specialization1']")
-    private WebElement specialization1Select;
+    By courseSelect= By.cssSelector("select[formcontrolname='course']");
+    By specialization1Select= By.cssSelector("select[formcontrolname='specialization1']");
 
     @FindBy(css = "input[type='file'][accept='.pdf,image/*']")
     private List<WebElement> uploadInputs;
@@ -78,6 +75,12 @@ public class StudentDetails1stStep {
 
     @FindBy(css = "select[formcontrolname='religion']")
     private WebElement religionSelect;
+
+    // private By admissionTypeSelect= By.cssSelector("select[formcontrolname='admissionType']");
+    // private By transportRequiredSelect= By.cssSelector("select[formcontrolname='transportRequired']");
+    // private By hostelRequiredSelect= By.cssSelector("select[formcontrolname='hostelRequired']");
+    // private By fatherNameInput= By.cssSelector("input[formcontrolname='fatherName']");
+    // private By motherNameInput= By.cssSelector("input[formcontrolname='motherName']");
 
     @FindBy(css = "select[formcontrolname='admissionType']")
     private WebElement admissionTypeSelect;
@@ -126,6 +129,10 @@ public class StudentDetails1stStep {
 
     @FindBy(xpath = "//div//p[contains(text(),' Profile Photo is required')]")
     private WebElement photoUploadValidationMessage;
+
+     private By uploadededFileName =
+     By.xpath("//span[contains(@class,'truncate')]");
+
 
     @FindBy(xpath = "//div//p[contains(text(),' Aadhar card is required ')]")   
     private WebElement aadharUploadValidationMessage;
@@ -180,14 +187,6 @@ public class StudentDetails1stStep {
     private void selectByValue(WebElement element, String value) {
         WebElement el = waitForVisible(element);
         new Select(el).selectByVisibleText(value);
-    }
-
-    public void selectCourse(String courseValue) {
-        selectByValue(courseSelect, courseValue);
-    }
-
-    public void selectSpecialization1(String specializationValue) {
-        selectByValue(specialization1Select, specializationValue);
     }
 
     public void uploadPhoto(String filePath) {
@@ -341,6 +340,43 @@ public class StudentDetails1stStep {
         enterFatherName("Harri");
         enterMotherName("Sree");
         clickMakePayment();
+    }
+
+    public String getSelectedDropdownText(By locator) {
+    WebElement element = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(locator));
+
+    Select select = new Select(element);
+    return select.getFirstSelectedOption().getText().trim();
+}
+
+    public String getSelectedCourse() {
+    return getSelectedDropdownText(courseSelect);
+}
+    public String getSelectedSpecialization()
+    {
+            return getSelectedDropdownText(specialization1Select);
+
+    }
+
+    public String getUploadFileName()
+    {
+        return driver.findElement(uploadededFileName).getText();
+    }
+
+    public void clearMandatoryFields()
+    {   
+ WebElement element = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                    aadhaarNumberInput));
+
+    element.click();
+    element.sendKeys(Keys.CONTROL + "a");
+    element.sendKeys(Keys.DELETE);    }
+
+    public String adharvalidationMessage()
+    {
+       return aadhaarRequiredValidation.getText();
     }
     
 }

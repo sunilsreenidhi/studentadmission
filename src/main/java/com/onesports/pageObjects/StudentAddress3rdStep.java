@@ -3,6 +3,7 @@
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -57,6 +58,8 @@ public class StudentAddress3rdStep {
     @FindBy(css = "select[formcontrolname='presentCity']")
     private WebElement presentCitySelect;
 
+    By presentAddressLine1ErrorMsg= By.xpath("//span[contains(normalize-space(.), 'Present Address Line1 is required')]");
+        By presentPinCodeErrorMsg= By.xpath("//span[contains(normalize-space(.), 'Present PinCode is required')]");
 
     By presentAddressLine1InputBy = By.cssSelector("input[formcontrolname='presentAddressLine1']");
 
@@ -210,6 +213,45 @@ public class StudentAddress3rdStep {
 public void clickPermanentCheckbox() {
     wait.until(ExpectedConditions.elementToBeClickable(permanentAddressCheckbox)).click();
 
+}
+
+public void clearField(By locator) {
+
+    WebElement element = wait.until(
+            ExpectedConditions.elementToBeClickable(locator));
+
+    element.click();
+
+    element.sendKeys(Keys.CONTROL + "a");
+
+    element.sendKeys(Keys.DELETE);
+
+    element.sendKeys(Keys.TAB);
+}
+
+public void clearAddressFields() {
+
+    clearField(presentAddressLine1InputBy);
+
+    clearField(presentPinCodeInputBy);
+}
+
+public String getAddressError() {
+
+    return wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                    presentAddressLine1ErrorMsg))
+            .getText()
+            .trim();
+}
+
+public String getPinCodeError() {
+
+    return wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                    presentPinCodeErrorMsg))
+            .getText()
+            .trim();
 }
 
     
