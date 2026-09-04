@@ -7,6 +7,7 @@
   <test name="AllTests">
     <classes>
         <class name="com.onesports.tests.LoginTest"/>
+        <class name="com.onesports.tests.EnquiryScripts"/>
           <!-- <methods>
                     <include name="registerUserToFillApplication" />
                 </methods> -->
